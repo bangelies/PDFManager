@@ -3,6 +3,7 @@ package ar.com.galicia.verificar;
 
 import ar.com.galicia.log.Logear;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import sun.misc.BASE64Encoder;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -27,6 +28,11 @@ public class A {
 
             Logear.logEmpresasSAS_debug("-----------------"+obj.getBase64());
 
+//            BASE64Encoder encoder = new BASE64Encoder();
+//            String encoded = encoder.encode((obj.getBase64()).getBytes("UTF-8"));
+
+
+            Logear.logEmpresasSAS_debug("-----------------"+obj.getBase64());
             respuesta = cv.verificarFirma(certificado, obj.getBase64());
 
 

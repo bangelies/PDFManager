@@ -38,9 +38,10 @@ public class JsonService extends HttpServlet {
 
             Logear.logEmpresasSAS_debug("-----------------"+obj.getBase64());
 
+
+
             respuesta = cv.verificarFirma(certificado,obj.getBase64());
 
-//            Staff obj = new Staff();
 //            //Object to JSON in String
 //            String jsonInString = mapper.writeValueAsString(obj);
 
