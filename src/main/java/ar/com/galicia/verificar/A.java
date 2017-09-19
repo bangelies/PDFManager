@@ -18,7 +18,7 @@ public class A {
 
 
         Logear.logEmpresasSAS_debug("*****************************************************************************************************");
-        String respuesta = "";
+        String respuesta="";
         String certificado = "/ibm/bpmLogs/acraizra.crt";
         CertificateValidation cv = new CertificateValidation();
         try {

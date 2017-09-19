@@ -1,6 +1,7 @@
 import ar.com.galicia.log.Logear;
 import ar.com.galicia.verificar.CertificateValidation;
 import ar.com.galicia.verificar.PDFBase64;
+import ar.com.galicia.verificar.Respuesta;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.servlet.ServletException;
@@ -17,10 +18,10 @@ import java.io.IOException;
 @WebServlet(name = "pdf", urlPatterns = "/verificarFirma")
 
 
-public class HelloServlet extends HttpServlet {
+public class JsonService extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().write("HelloServlet GET");
+        resp.getWriter().write("JsonService GET");
 
     }
 
@@ -28,7 +29,7 @@ public class HelloServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
 
         Logear.logEmpresasSAS_debug("*****************************************************************************************************");
-        String respuesta = "";
+        String respuesta="";
         String certificado = "/ibm/bpmLogs/acraizra.crt";
         CertificateValidation cv = new CertificateValidation();
         try {
@@ -38,7 +39,13 @@ public class HelloServlet extends HttpServlet {
             Logear.logEmpresasSAS_debug("-----------------"+obj.getBase64());
 
             respuesta = cv.verificarFirma(certificado,obj.getBase64());
-            resp.getWriter().write("HelloServlet POST " + respuesta);
+
+//            Staff obj = new Staff();
+//            //Object to JSON in String
+//            String jsonInString = mapper.writeValueAsString(obj);
+
+
+            resp.getWriter().write("JsonService POST " + respuesta);
 
         } catch (Exception e) {
             e.printStackTrace();

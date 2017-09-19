@@ -23,10 +23,13 @@ import java.util.List;
 public class CertificateValidation extends SignatureIntegrity {
 
 
-	KeyStore ks;
-	String respuesta;
-	boolean integridadFirmas=true;
-	boolean conFirmas=false;
+	private KeyStore ks;
+	private String respuesta;
+	private boolean integridadFirmas=true;
+	private boolean conFirmas=false;
+
+
+
 	public PdfPKCS7 verifySignature(AcroFields fields, String name)
 			throws GeneralSecurityException, IOException {
 		conFirmas=true;
