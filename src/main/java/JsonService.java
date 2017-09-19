@@ -42,7 +42,7 @@ public class JsonService extends HttpServlet {
             respuesta.setEstadoPdf(cv.verificarFirma(certificado,obj.getBase64()));
 
 
-
+            //http://desabpmpc01.bancogalicia.com.ar:9080/pdfverify/verificarFirma?base64={"base64" : ""}
             //Object to JSON in String
             String jsonInString = mapper.writeValueAsString(respuesta);
 

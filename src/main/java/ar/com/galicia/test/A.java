@@ -1,7 +1,9 @@
-package ar.com.galicia.verificar;
+package ar.com.galicia.test;
 
 
 import ar.com.galicia.log.Logear;
+import ar.com.galicia.verificar.CertificateValidation;
+import ar.com.galicia.verificar.PDFBase64;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import sun.misc.BASE64Encoder;
 
