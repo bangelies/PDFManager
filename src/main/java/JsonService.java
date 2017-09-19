@@ -29,7 +29,6 @@ public class JsonService extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
 
         Logear.logEmpresasSAS_debug("*****************************************************************************************************");
-        String respuesta="";
         String certificado = "/ibm/bpmLogs/acraizra.crt";
         CertificateValidation cv = new CertificateValidation();
         try {
@@ -38,15 +37,17 @@ public class JsonService extends HttpServlet {
 
             Logear.logEmpresasSAS_debug("-----------------"+obj.getBase64());
 
+            Respuesta respuesta = new Respuesta();
+
+            respuesta.setEstadoPdf(cv.verificarFirma(certificado,obj.getBase64()));
 
 
-            respuesta = cv.verificarFirma(certificado,obj.getBase64());
 
-//            //Object to JSON in String
-//            String jsonInString = mapper.writeValueAsString(obj);
+            //Object to JSON in String
+            String jsonInString = mapper.writeValueAsString(respuesta);
 
 
-            resp.getWriter().write("JsonService POST " + respuesta);
+            resp.getWriter().write("JsonService POST " + jsonInString);
 
         } catch (Exception e) {
             e.printStackTrace();

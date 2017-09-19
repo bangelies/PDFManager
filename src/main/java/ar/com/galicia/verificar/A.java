@@ -26,15 +26,11 @@ public class A {
             ObjectMapper mapper = new ObjectMapper();
             PDFBase64 obj = mapper.readValue(leerArchivo(), PDFBase64.class);
 
-            Logear.logEmpresasSAS_debug("-----------------"+obj.getBase64());
+            //Logear.logEmpresasSAS_debug("-----------------"+obj.getBase64());
 
-//            BASE64Encoder encoder = new BASE64Encoder();
-//            String encoded = encoder.encode((obj.getBase64()).getBytes("UTF-8"));
-
-
-            Logear.logEmpresasSAS_debug("-----------------"+obj.getBase64());
             respuesta = cv.verificarFirma(certificado, obj.getBase64());
 
+            Logear.logEmpresasSAS_debug(respuesta);
 
         } catch (Exception e) {
             e.printStackTrace();

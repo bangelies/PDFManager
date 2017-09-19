@@ -130,26 +130,39 @@ public class CertificateValidation extends SignatureIntegrity {
 		setKeyStore(ks);
 		verifySignatures(base64);
 
-
-		if(integridadFirmas & conFirmas){
-			Logear.logEmpresasSAS_debug("integridadFirmas: "+integridadFirmas);
-			Logear.logEmpresasSAS_debug("conFirmas: "+conFirmas);
-			respuesta="ok";
-		}else{
-
-			if(conFirmas==false){
-				integridadFirmas=false;
-				Logear.logEmpresasSAS_debug("conFirmas: "+conFirmas);
-			}else{
-				Logear.logEmpresasSAS_debug("conFirmas: "+conFirmas);
+		if(conFirmas){
+			Logear.logEmpresasSAS_debug("El documento tiene al menos una firma");
+			if(integridadFirmas) {
+				Logear.logEmpresasSAS_debug("Documento valido");
+				respuesta="Documento valido";
+			}else {
+				respuesta="Al menos una firma no es valida";
+				Logear.logEmpresasSAS_debug("Al menos una firma no es valida");
 			}
-
-			Logear.logEmpresasSAS_debug("integridadFirmas: "+integridadFirmas);
-			respuesta="fail";
+		}else {
+			respuesta="El documento no tiene firmas";
 		}
-		Logear.logEmpresasSAS_debug("respuesta: "+respuesta);
-
 		Logear.logEmpresasSAS_debug("Fin verificarFirma");
+
+//		if(integridadFirmas & conFirmas){
+//			Logear.logEmpresasSAS_debug("integridadFirmas: "+integridadFirmas);
+//			Logear.logEmpresasSAS_debug("conFirmas: "+conFirmas);
+//			respuesta="ok";
+//		}else{
+//
+//			if(conFirmas==false){
+//				integridadFirmas=false;
+//				Logear.logEmpresasSAS_debug("conFirmas: "+conFirmas);
+//			}else{
+//				Logear.logEmpresasSAS_debug("conFirmas: "+conFirmas);
+//			}
+//
+//			Logear.logEmpresasSAS_debug("integridadFirmas: "+integridadFirmas);
+//			respuesta="fail";
+//		}
+//		Logear.logEmpresasSAS_debug("respuesta: "+respuesta);
+//
+//		Logear.logEmpresasSAS_debug("Fin verificarFirma");
 		return respuesta;
 
 
