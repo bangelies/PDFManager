@@ -25,12 +25,12 @@ public class A {
         String certificado = "/ibm/bpmLogs/acraizra.crt";
         CertificateValidation cv = new CertificateValidation();
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            PDFBase64 obj = mapper.readValue(leerArchivo(), PDFBase64.class);
+            //ObjectMapper mapper = new ObjectMapper();
+            //PDFBase64 obj = mapper.readValue(leerArchivo(), PDFBase64.class);
 
             //Logear.logEmpresasSAS_debug("-----------------"+obj.getBase64());
 
-            respuesta = cv.verificarFirma(certificado, obj.getBase64());
+            respuesta = cv.verificarFirma(certificado, leerArchivo());
 
             Logear.logEmpresasSAS_debug(respuesta);
 
@@ -38,23 +38,23 @@ public class A {
             e.printStackTrace();
             Logear.logEmpresasSAS_debug("Error al verificar PDF");
         }
-
+        Logear.logEmpresasSAS_debug("*****************************************************************************************************");
     }
     private static String leerArchivo() {
 
         BufferedReader br = null;
         FileReader fr = null;
-        String salida="";
+        StringBuilder sb =new StringBuilder();//
         try {
 
             //br = new BufferedReader(new FileReader(FILENAME));
-            fr = new FileReader("E:\\SAS\\PDFs\\json.txt");
+            fr = new FileReader("E:\\SAS\\PDFs\\2017090711350004_IF-2017-19191094-APN-DA#IGJ - Documento Constitutivo.txt");
             br = new BufferedReader(fr);
 
             String sCurrentLine;
 
             while ((sCurrentLine = br.readLine()) != null) {
-                salida+=sCurrentLine;
+                sb.append(sCurrentLine);
             }
 
         } catch (IOException e) {
@@ -78,7 +78,7 @@ public class A {
             }
 
         }
-        return salida;
+        return sb.toString();
 
     }
 }

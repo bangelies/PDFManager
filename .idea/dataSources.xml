@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="ProcesoCILI@AD_CILI_ProcesoCILI" uuid="0fd04b71-ab5e-42c8-938a-6b41d101f01d">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://AD_CILI_ProcesoCILI:2008;databaseName=ProcesoCILI</jdbc-url>
+    </data-source>
+  </component>
+</project>
