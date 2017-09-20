@@ -25,6 +25,7 @@ public class A {
         String certificado = "/ibm/bpmLogs/acraizra.crt";
         CertificateValidation cv = new CertificateValidation();
         try {
+            //Otro comentario
             //ObjectMapper mapper = new ObjectMapper();
             //PDFBase64 obj = mapper.readValue(leerArchivo(), PDFBase64.class);
 
