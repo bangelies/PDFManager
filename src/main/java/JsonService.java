@@ -65,17 +65,23 @@ public class JsonService extends HttpServlet {
             if(pdfEstadoGeneral.equalsIgnoreCase("Documento valido")){
                 Logear.logEmpresasSAS_debug("PDF Hijo inicio ----------");
                 ExtractEmbeddedFiles eef = new ExtractEmbeddedFiles(pdfHijo);
-                eef.extraerAdjuntos(pdfPadre);
+                boolean tieneAdjuntos = eef.extraerAdjuntos(pdfPadre);
 
-                CertificateValidation verificarHijo = new CertificateValidation();
-                pdfEstadoGeneral= verificarHijo.verificarFirmaFilePath(pdfHijo);
-                Logear.logEmpresasSAS_debug(pdfEstadoGeneral);
+                if(tieneAdjuntos){
+                    CertificateValidation verificarHijo = new CertificateValidation();
+                    pdfEstadoGeneral= verificarHijo.verificarFirmaFilePath(pdfHijo);
+                    Logear.logEmpresasSAS_debug(pdfEstadoGeneral);
+                }else{
+                    pdfEstadoGeneral= "El PDF no posee estatuto";
+                }
+
+
 
                 Logear.logEmpresasSAS_debug("PDF Hijo fin ----------");
 
             }else{
                 //System.out.println(respuesta);
-                Logear.logEmpresasSAS_debug(pdfEstadoGeneral);
+                Logear.logEmpresasSAS_debug("Error al verificar firmas");
             }
 
 

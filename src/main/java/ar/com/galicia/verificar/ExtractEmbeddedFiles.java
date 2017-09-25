@@ -62,6 +62,8 @@ public final class ExtractEmbeddedFiles
             PDEmbeddedFilesNameTreeNode efTree = namesDictionary.getEmbeddedFiles();
             if (efTree != null)
             {
+
+                response=true;
                 Map<String, PDComplexFileSpecification> names = efTree.getNames();
                 if (names != null)
                 {
@@ -77,7 +79,8 @@ public final class ExtractEmbeddedFiles
                     }
                 }
             }else{
-                System.out.println("Sin adjuntos");
+                response=false;
+                Logear.logEmpresasSAS_debug("Sin adjuntos");
             }
 
             // extract files from annotations

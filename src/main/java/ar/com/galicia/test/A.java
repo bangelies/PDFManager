@@ -60,11 +60,15 @@ public class A {
             if(pdfEstadoGeneral.equalsIgnoreCase("Documento valido")){
                 System.out.println("PDF Hijo");
                 ExtractEmbeddedFiles eef = new ExtractEmbeddedFiles(pdfHijo);
-                eef.extraerAdjuntos(pdfPadre);
+                boolean tieneAdjuntos = eef.extraerAdjuntos(pdfPadre);
 
-                CertificateValidation verificarHijo = new CertificateValidation();
-                pdfEstadoGeneral= verificarHijo.verificarFirmaFilePath(pdfHijo);
-                System.out.println(pdfEstadoGeneral);
+                if(tieneAdjuntos){
+                    CertificateValidation verificarHijo = new CertificateValidation();
+                    pdfEstadoGeneral= verificarHijo.verificarFirmaFilePath(pdfHijo);
+                    Logear.logEmpresasSAS_debug(pdfEstadoGeneral);
+                }else{
+                    pdfEstadoGeneral= "El PDF no posee estatuto";
+                }
 
 
 
