@@ -24,7 +24,7 @@ public class CertificateValidation extends SignatureIntegrity {
 
 
 	private KeyStore ks;
-	private String respuesta;
+	private int respuesta;
 	private boolean integridadFirmas=true;
 	private boolean conFirmas=false;
 
@@ -78,12 +78,12 @@ public class CertificateValidation extends SignatureIntegrity {
 		}
 		if (verification.size() == 0) {
 			Logear.logEmpresasSAS_debug("The signing certificate couldn't be verified");
-			respuesta="fail";
+			//respuesta="fail";
 		}
 		else {
 			for (VerificationOK v : verification)
 				Logear.logEmpresasSAS_debug(v.toString());
-			respuesta="ok";
+			//respuesta="ok";
 		}
 	}
 
@@ -115,7 +115,7 @@ public class CertificateValidation extends SignatureIntegrity {
 		this.ks = ks;
 	}
 
-	public String verificarFirmaBase64(String base64) throws IOException,GeneralSecurityException {
+	public int verificarFirmaBase64(String base64) throws IOException,GeneralSecurityException {
 		Logear.logEmpresasSAS_debug("Inicio verificarFirma");
 
 		//LoggerFactory.getInstance().setLogger(new SysoLogger());
@@ -136,19 +136,19 @@ public class CertificateValidation extends SignatureIntegrity {
 			Logear.logEmpresasSAS_debug("El documento tiene al menos una firma");
 			if(integridadFirmas) {
 				Logear.logEmpresasSAS_debug("Documento valido");
-				respuesta="Documento valido";
+				respuesta=1;
 			}else {
-				respuesta="Al menos una firma no es valida";
+				respuesta=2;
 				Logear.logEmpresasSAS_debug("Al menos una firma no es valida");
 			}
 		}else {
-			respuesta="El documento no tiene firmas";
+			respuesta=3;
 		}
 		Logear.logEmpresasSAS_debug("Fin verificarFirma");
 
 		return respuesta;
 	}
-	public String verificarFirmaFilePath(String path) throws IOException,GeneralSecurityException {
+	public int verificarFirmaFilePath(String path) throws IOException,GeneralSecurityException {
 		Logear.logEmpresasSAS_debug("Inicio verificarFirma");
 
 		//LoggerFactory.getInstance().setLogger(new SysoLogger());
@@ -169,13 +169,13 @@ public class CertificateValidation extends SignatureIntegrity {
 			Logear.logEmpresasSAS_debug("El documento tiene al menos una firma");
 			if(integridadFirmas) {
 				Logear.logEmpresasSAS_debug("Documento valido");
-				respuesta="Documento valido";
+				respuesta=1;
 			}else {
-				respuesta="Al menos una firma no es valida";
+				respuesta=2;
 				Logear.logEmpresasSAS_debug("Al menos una firma no es valida");
 			}
 		}else {
-			respuesta="El documento no tiene firmas";
+			respuesta=3;
 		}
 		Logear.logEmpresasSAS_debug("Fin verificarFirma");
 

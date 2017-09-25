@@ -38,7 +38,8 @@ public class JsonService extends HttpServlet {
 
 
         Respuesta respuesta = new Respuesta();
-        String pdfEstadoGeneral ="";
+        int estadoFirma =1;
+        int estadoArchivo=1;
         ObjectMapper mapper = new ObjectMapper();
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssss");
@@ -56,23 +57,23 @@ public class JsonService extends HttpServlet {
             //Verificar PADRE
             Logear.logEmpresasSAS_debug("PDF Padre inicio ----------");
             CertificateValidation verificarPadre = new CertificateValidation();
-            pdfEstadoGeneral = verificarPadre.verificarFirmaBase64(obj.getBase64());
-            Logear.logEmpresasSAS_debug(pdfEstadoGeneral);
+            estadoFirma = verificarPadre.verificarFirmaBase64(obj.getBase64());
+            Logear.logEmpresasSAS_debug("pdfEstadoGeneral "+estadoFirma);
 
             FileUtils.writeByteArrayToFile(new File(pdfPadre), decode(obj.getBase64()));
             Logear.logEmpresasSAS_debug("PDF Padre fin ----------");
             //Verificar HIJO
-            if(pdfEstadoGeneral.equalsIgnoreCase("Documento valido")){
+            if(estadoFirma==1){
                 Logear.logEmpresasSAS_debug("PDF Hijo inicio ----------");
                 ExtractEmbeddedFiles eef = new ExtractEmbeddedFiles(pdfHijo);
                 boolean tieneAdjuntos = eef.extraerAdjuntos(pdfPadre);
 
                 if(tieneAdjuntos){
                     CertificateValidation verificarHijo = new CertificateValidation();
-                    pdfEstadoGeneral= verificarHijo.verificarFirmaFilePath(pdfHijo);
-                    Logear.logEmpresasSAS_debug(pdfEstadoGeneral);
+                    estadoFirma= verificarHijo.verificarFirmaFilePath(pdfHijo);
+                    Logear.logEmpresasSAS_debug("pdfEstadoGeneral "+estadoFirma);
                 }else{
-                    pdfEstadoGeneral= "El PDF no posee estatuto";
+                    estadoArchivo= 2;
                 }
 
 
@@ -86,7 +87,8 @@ public class JsonService extends HttpServlet {
 
 
 
-            respuesta.setEstadoPdf(pdfEstadoGeneral);
+            respuesta.setEstadoArchivo(estadoArchivo);
+            respuesta.setEstadoFirma(estadoFirma);
             //http://desabpmpc01.bancogalicia.com.ar:9080/pdfverify/verificarFirma?base64={"base64" : ""}
             //Object to JSON in String
             String jsonInString = mapper.writeValueAsString(respuesta);

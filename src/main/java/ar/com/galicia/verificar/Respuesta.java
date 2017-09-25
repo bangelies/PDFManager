@@ -6,16 +6,26 @@ package ar.com.galicia.verificar;
 public class Respuesta {
 
 
-    private String estadoPdf;
+
+    private int estadoArchivo;
+    private int estadoFirma;
 
     public Respuesta() {
     }
 
-    public String getEstadoPdf() {
-        return estadoPdf;
+    public int getEstadoArchivo() {
+        return estadoArchivo;
     }
 
-    public void setEstadoPdf(String estadoPdf) {
-        this.estadoPdf = estadoPdf;
+    public void setEstadoArchivo(int estadoArchivo) {
+        this.estadoArchivo = estadoArchivo;
+    }
+
+    public int getEstadoFirma() {
+        return estadoFirma;
+    }
+
+    public void setEstadoFirma(int estadoFirma) {
+        this.estadoFirma = estadoFirma;
     }
 }

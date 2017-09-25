@@ -27,12 +27,13 @@ public class A {
     public static void main(String[] args){
 
 
-        Logear.logEmpresasSAS_debug("*****************************************************************************************************");
+        System.out.println("*****************************************************************************************************");
         String base64 = leerArchivo();
 
 
         Respuesta respuesta = new Respuesta();
-        String pdfEstadoGeneral ="";
+        int estadoFirma =1;
+        int estadoArchivo=1;
         ObjectMapper mapper = new ObjectMapper();
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssss");
@@ -50,36 +51,35 @@ public class A {
             //Verificar PADRE
             System.out.println("PDF Padre");
             CertificateValidation verificarPadre = new CertificateValidation();
-            pdfEstadoGeneral = verificarPadre.verificarFirmaBase64(base64);
-            System.out.println(pdfEstadoGeneral);
-            Logear.logEmpresasSAS_debug(pdfEstadoGeneral);
+            estadoFirma = verificarPadre.verificarFirmaBase64(base64);
+            System.out.println("estadoFirma "+estadoFirma);
 
             FileUtils.writeByteArrayToFile(new File(pdfPadre), decode(base64));
 
             //Verificar HIJO
-            if(pdfEstadoGeneral.equalsIgnoreCase("Documento valido")){
+            if(estadoFirma==1){
                 System.out.println("PDF Hijo");
                 ExtractEmbeddedFiles eef = new ExtractEmbeddedFiles(pdfHijo);
                 boolean tieneAdjuntos = eef.extraerAdjuntos(pdfPadre);
 
                 if(tieneAdjuntos){
                     CertificateValidation verificarHijo = new CertificateValidation();
-                    pdfEstadoGeneral= verificarHijo.verificarFirmaFilePath(pdfHijo);
-                    Logear.logEmpresasSAS_debug(pdfEstadoGeneral);
+                    estadoFirma= verificarHijo.verificarFirmaFilePath(pdfHijo);
+                    System.out.println("estadoFirma "+estadoFirma);
                 }else{
-                    pdfEstadoGeneral= "El PDF no posee estatuto";
+                    estadoArchivo=2;
                 }
 
 
 
             }else{
-                System.out.println(respuesta);
-                Logear.logEmpresasSAS_debug(pdfEstadoGeneral);
+                System.out.println("estadoArchivo "+estadoFirma);
             }
 
 
 
-            respuesta.setEstadoPdf(pdfEstadoGeneral);
+            respuesta.setEstadoArchivo(estadoArchivo);
+            respuesta.setEstadoFirma(estadoFirma);
             //http://desabpmpc01.bancogalicia.com.ar:9080/pdfverify/verificarFirma?base64={"base64" : ""}
             //Object to JSON in String
             String jsonInString = mapper.writeValueAsString(respuesta);
@@ -88,11 +88,11 @@ public class A {
 
         } catch (Exception e) {
             e.printStackTrace();
-            Logear.logEmpresasSAS_debug("Error al verificar PDF");
+            System.out.println("Error al verificar PDF");
         }
 
 
-        Logear.logEmpresasSAS_debug("*****************************************************************************************************");
+        System.out.println("*****************************************************************************************************");
     }
     private static String leerArchivo() {
 
@@ -102,7 +102,7 @@ public class A {
         try {
 
             //br = new BufferedReader(new FileReader(FILENAME));
-            fr = new FileReader("E:\\SAS\\PDFs\\2017090711350004_IF-2017-19191094-APN-DA#IGJ - Documento Constitutivo.txt");
+            fr = new FileReader("E:\\SAS\\PDFs\\2017091222510001_ActaModelo.txt");
             br = new BufferedReader(fr);
 
             String sCurrentLine;
