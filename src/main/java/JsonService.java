@@ -63,7 +63,7 @@ public class JsonService extends HttpServlet {
             Logear.logEmpresasSAS_debug("PDF Padre fin ----------");
             //Verificar HIJO
             if(pdfEstadoGeneral.equalsIgnoreCase("Documento valido")){
-                Logear.logEmpresasSAS_debug("PDF Hijo ----------");
+                Logear.logEmpresasSAS_debug("PDF Hijo inicio ----------");
                 ExtractEmbeddedFiles eef = new ExtractEmbeddedFiles(pdfHijo);
                 eef.extraerAdjuntos(pdfPadre);
 
@@ -71,7 +71,7 @@ public class JsonService extends HttpServlet {
                 pdfEstadoGeneral= verificarHijo.verificarFirmaFilePath(pdfHijo);
                 Logear.logEmpresasSAS_debug(pdfEstadoGeneral);
 
-                Logear.logEmpresasSAS_debug("PDF fin ----------");
+                Logear.logEmpresasSAS_debug("PDF Hijo fin ----------");
 
             }else{
                 //System.out.println(respuesta);
