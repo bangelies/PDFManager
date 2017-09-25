@@ -1,15 +1,20 @@
 import ar.com.galicia.log.Logear;
-import ar.com.galicia.verificar.CertificateValidation;
-import ar.com.galicia.verificar.PDFBase64;
-import ar.com.galicia.verificar.Respuesta;
+import ar.com.galicia.verificar.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.io.FileUtils;
+import org.bouncycastle.util.encoders.Base64Encoder;
+import org.bouncycastle.util.encoders.Encoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by l0633615 on 12/09/2017.
@@ -26,27 +31,59 @@ public class JsonService extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         Logear.logEmpresasSAS_debug("*****************************************************************************************************");
-        String certificado = "/ibm/bpmLogs/acraizra.crt";
-        CertificateValidation cv = new CertificateValidation();
+        //String base64 = leerArchivo();
+
+
+        Respuesta respuesta = new Respuesta();
+        String pdfEstadoGeneral ="";
+        ObjectMapper mapper = new ObjectMapper();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssss");
+        String date = sdf.format(new Date());
+        String pdfPadre="/ibm/bpmLogs/tmpPadre_"+date+".pdf";
+        String pdfHijo="/ibm/bpmLogs/tmpHijo_"+date+".pdf";
+
+
         try {
-            ObjectMapper mapper = new ObjectMapper();
             PDFBase64 obj = mapper.readValue(req.getParameter("base64"), PDFBase64.class);
 
-            Logear.logEmpresasSAS_debug("-----------------"+obj.getBase64());
-
-            Respuesta respuesta = new Respuesta();
-
-            respuesta.setEstadoPdf(cv.verificarFirma(certificado,obj.getBase64()));
 
 
+
+            //Verificar PADRE
+            Logear.logEmpresasSAS_debug("PDF Padre inicio ----------");
+            CertificateValidation verificarPadre = new CertificateValidation();
+            pdfEstadoGeneral = verificarPadre.verificarFirmaBase64(obj.getBase64());
+            Logear.logEmpresasSAS_debug(pdfEstadoGeneral);
+
+            FileUtils.writeByteArrayToFile(new File(pdfPadre), decode(obj.getBase64()));
+            Logear.logEmpresasSAS_debug("PDF Padre fin ----------");
+            //Verificar HIJO
+            if(pdfEstadoGeneral.equalsIgnoreCase("Documento valido")){
+                Logear.logEmpresasSAS_debug("PDF Hijo ----------");
+                ExtractEmbeddedFiles eef = new ExtractEmbeddedFiles(pdfHijo);
+                eef.extraerAdjuntos(pdfPadre);
+
+                CertificateValidation verificarHijo = new CertificateValidation();
+                pdfEstadoGeneral= verificarHijo.verificarFirmaFilePath(pdfHijo);
+                Logear.logEmpresasSAS_debug(pdfEstadoGeneral);
+
+                Logear.logEmpresasSAS_debug("PDF fin ----------");
+
+            }else{
+                //System.out.println(respuesta);
+                Logear.logEmpresasSAS_debug(pdfEstadoGeneral);
+            }
+
+
+
+            respuesta.setEstadoPdf(pdfEstadoGeneral);
             //http://desabpmpc01.bancogalicia.com.ar:9080/pdfverify/verificarFirma?base64={"base64" : ""}
             //Object to JSON in String
             String jsonInString = mapper.writeValueAsString(respuesta);
-
-
             resp.getWriter().write("JsonService POST " + jsonInString);
 
         } catch (Exception e) {
@@ -56,7 +93,15 @@ public class JsonService extends HttpServlet {
 
 
         Logear.logEmpresasSAS_debug("*****************************************************************************************************");
-
-
+    }
+    private byte[] decode(String data)
+    {
+        Encoder encoder = new Base64Encoder();
+        int len = data.length() / 4 * 3;
+        ByteArrayOutputStream bOut = new ByteArrayOutputStream(len);
+        try{
+            encoder.decode(data, bOut);
+        }catch (Exception e){}
+        return bOut.toByteArray();
     }
 }

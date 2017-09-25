@@ -59,14 +59,14 @@ public class CertificateValidation extends SignatureIntegrity {
 
 		return pkcs7;
 	}
- 
+
 	public void checkRevocation(PdfPKCS7 pkcs7, X509Certificate signCert, X509Certificate issuerCert, Date date) throws GeneralSecurityException, IOException {
 		List<BasicOCSPResp> ocsps = new ArrayList<BasicOCSPResp>();
 		if (pkcs7.getOcsp() != null)
 			ocsps.add(pkcs7.getOcsp());
 		OCSPVerifier ocspVerifier = new OCSPVerifier(null, ocsps);
 		List<VerificationOK> verification =
-			ocspVerifier.verify(signCert, issuerCert, date);
+				ocspVerifier.verify(signCert, issuerCert, date);
 		if (verification.size() == 0) {
 			List<X509CRL> crls = new ArrayList<X509CRL>();
 			if (pkcs7.getCRLs() != null) {
@@ -86,7 +86,7 @@ public class CertificateValidation extends SignatureIntegrity {
 			respuesta="ok";
 		}
 	}
- 
+
 	public void showCertificateInfo(X509Certificate cert, Date signDate) {
 		Logear.logEmpresasSAS_debug("Issuer: " + cert.getIssuerDN());
 		Logear.logEmpresasSAS_debug("Subject: " + cert.getSubjectDN());
@@ -110,12 +110,12 @@ public class CertificateValidation extends SignatureIntegrity {
 			Logear.logEmpresasSAS_debug("The certificate isn't valid yet.");
 		}
 	}
- 
+
 	private void setKeyStore(KeyStore ks) {
 		this.ks = ks;
 	}
- 
-	public String verificarFirma(String cacert, String base64) throws IOException,GeneralSecurityException {
+
+	public String verificarFirmaBase64(String base64) throws IOException,GeneralSecurityException {
 		Logear.logEmpresasSAS_debug("Inicio verificarFirma");
 
 		//LoggerFactory.getInstance().setLogger(new SysoLogger());
@@ -123,12 +123,14 @@ public class CertificateValidation extends SignatureIntegrity {
 		Security.addProvider(provider);
 		//CertificateValidation app = new CertificateValidation();
 		KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
- 
+
 		ks.load(null, null);
 		CertificateFactory cf = CertificateFactory.getInstance("X.509");
-		ks.setCertificateEntry("cacert",cf.generateCertificate(new FileInputStream(cacert)));
+		ks.setCertificateEntry("cacert",cf.generateCertificate(new FileInputStream("/ibm/bpmLogs/acraizra.crt")));
 		setKeyStore(ks);
-		verifySignatures(base64);
+
+		//Verificar BASE64
+		verifySignaturesBase64(base64);
 
 		if(conFirmas){
 			Logear.logEmpresasSAS_debug("El documento tiene al menos una firma");
@@ -144,27 +146,40 @@ public class CertificateValidation extends SignatureIntegrity {
 		}
 		Logear.logEmpresasSAS_debug("Fin verificarFirma");
 
-//		if(integridadFirmas & conFirmas){
-//			Logear.logEmpresasSAS_debug("integridadFirmas: "+integridadFirmas);
-//			Logear.logEmpresasSAS_debug("conFirmas: "+conFirmas);
-//			respuesta="ok";
-//		}else{
-//
-//			if(conFirmas==false){
-//				integridadFirmas=false;
-//				Logear.logEmpresasSAS_debug("conFirmas: "+conFirmas);
-//			}else{
-//				Logear.logEmpresasSAS_debug("conFirmas: "+conFirmas);
-//			}
-//
-//			Logear.logEmpresasSAS_debug("integridadFirmas: "+integridadFirmas);
-//			respuesta="fail";
-//		}
-//		Logear.logEmpresasSAS_debug("respuesta: "+respuesta);
-//
-//		Logear.logEmpresasSAS_debug("Fin verificarFirma");
 		return respuesta;
-
-
 	}
+	public String verificarFirmaFilePath(String path) throws IOException,GeneralSecurityException {
+		Logear.logEmpresasSAS_debug("Inicio verificarFirma");
+
+		//LoggerFactory.getInstance().setLogger(new SysoLogger());
+		BouncyCastleProvider provider = new BouncyCastleProvider();
+		Security.addProvider(provider);
+		//CertificateValidation app = new CertificateValidation();
+		KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
+
+		ks.load(null, null);
+		CertificateFactory cf = CertificateFactory.getInstance("X.509");
+		ks.setCertificateEntry("cacert",cf.generateCertificate(new FileInputStream("/ibm/bpmLogs/acraizra.crt")));
+		setKeyStore(ks);
+
+		//Verificar BASE64
+		verifySignaturesFilePath(path);
+
+		if(conFirmas){
+			Logear.logEmpresasSAS_debug("El documento tiene al menos una firma");
+			if(integridadFirmas) {
+				Logear.logEmpresasSAS_debug("Documento valido");
+				respuesta="Documento valido";
+			}else {
+				respuesta="Al menos una firma no es valida";
+				Logear.logEmpresasSAS_debug("Al menos una firma no es valida");
+			}
+		}else {
+			respuesta="El documento no tiene firmas";
+		}
+		Logear.logEmpresasSAS_debug("Fin verificarFirma");
+
+		return respuesta;
+	}
+
 }

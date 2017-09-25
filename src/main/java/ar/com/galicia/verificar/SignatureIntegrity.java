@@ -18,25 +18,33 @@ public class SignatureIntegrity {
 	public PdfPKCS7 verifySignature(AcroFields fields, String name) throws GeneralSecurityException, IOException {
 		Logear.logEmpresasSAS_debug("Signature covers whole document: " + fields.signatureCoversWholeDocument(name));
 		Logear.logEmpresasSAS_debug("Document revision: " + fields.getRevision(name) + " of " + fields.getTotalRevisions());
-        PdfPKCS7 pkcs7 = fields.verifySignature(name);
-        Logear.logEmpresasSAS_debug("Integrity check OK? " + pkcs7.verify());
-        return pkcs7;
+		PdfPKCS7 pkcs7 = fields.verifySignature(name);
+		Logear.logEmpresasSAS_debug("Integrity check OK? " + pkcs7.verify());
+		return pkcs7;
 	}
- 
-	public void verifySignatures(String pdf) throws IOException, GeneralSecurityException {
 
-
-
-        PdfReader reader = new PdfReader(decode(pdf));
-
-        AcroFields fields = reader.getAcroFields();
-        ArrayList<String> names = fields.getSignatureNames();
+	public void verifySignaturesBase64(String pdf) throws IOException, GeneralSecurityException {
+		PdfReader reader = new PdfReader(decode(pdf));
+		AcroFields fields = reader.getAcroFields();
+		ArrayList<String> names = fields.getSignatureNames();
 		for (String name : names) {
 			Logear.logEmpresasSAS_debug("===== " + name + " =====");
 			verifySignature(fields, name);
 		}
-
 	}
+	public void verifySignaturesFilePath(String pdf) throws IOException, GeneralSecurityException {
+		PdfReader reader = new PdfReader(pdf);
+		AcroFields fields = reader.getAcroFields();
+		ArrayList<String> names = fields.getSignatureNames();
+		for (String name : names) {
+			Logear.logEmpresasSAS_debug("===== " + name + " =====");
+			verifySignature(fields, name);
+		}
+	}
+
+
+
+
 	public byte[] decode(String    data)
 	{
 		int len = data.length() / 4 * 3;

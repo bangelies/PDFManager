@@ -3,14 +3,21 @@ package ar.com.galicia.test;
 
 import ar.com.galicia.log.Logear;
 import ar.com.galicia.verificar.CertificateValidation;
+import ar.com.galicia.verificar.ExtractEmbeddedFiles;
 import ar.com.galicia.verificar.PDFBase64;
+import ar.com.galicia.verificar.Respuesta;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.io.FileUtils;
+import org.bouncycastle.util.encoders.Base64Encoder;
+import org.bouncycastle.util.encoders.Encoder;
 import sun.misc.BASE64Encoder;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.security.GeneralSecurityException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+
 
 /**
  * Created by l0633615 on 30/08/2017.
@@ -21,24 +28,66 @@ public class A {
 
 
         Logear.logEmpresasSAS_debug("*****************************************************************************************************");
-        String respuesta="";
-        String certificado = "/ibm/bpmLogs/acraizra.crt";
-        CertificateValidation cv = new CertificateValidation();
+        String base64 = leerArchivo();
+
+
+        Respuesta respuesta = new Respuesta();
+        String pdfEstadoGeneral ="";
+        ObjectMapper mapper = new ObjectMapper();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssss");
+        String date = sdf.format(new Date());
+        String pdfPadre="e:/ibm/bpmLogs/tmpPadre_"+date+".pdf";
+        String pdfHijo="e:/ibm/bpmLogs/tmpHijo_"+date+".pdf";
+
+
         try {
-            //Otro comentario
-            //ObjectMapper mapper = new ObjectMapper();
-            //PDFBase64 obj = mapper.readValue(leerArchivo(), PDFBase64.class);
+            //PDFBase64 obj = mapper.readValue(req.getParameter("base64"), PDFBase64.class);
 
-            //Logear.logEmpresasSAS_debug("-----------------"+obj.getBase64());
 
-            respuesta = cv.verificarFirma(certificado, leerArchivo());
 
-            Logear.logEmpresasSAS_debug(respuesta);
+
+            //Verificar PADRE
+            System.out.println("PDF Padre");
+            CertificateValidation verificarPadre = new CertificateValidation();
+            pdfEstadoGeneral = verificarPadre.verificarFirmaBase64(base64);
+            System.out.println(pdfEstadoGeneral);
+            Logear.logEmpresasSAS_debug(pdfEstadoGeneral);
+
+            FileUtils.writeByteArrayToFile(new File(pdfPadre), decode(base64));
+
+            //Verificar HIJO
+            if(pdfEstadoGeneral.equalsIgnoreCase("Documento valido")){
+                System.out.println("PDF Hijo");
+                ExtractEmbeddedFiles eef = new ExtractEmbeddedFiles(pdfHijo);
+                eef.extraerAdjuntos(pdfPadre);
+
+                CertificateValidation verificarHijo = new CertificateValidation();
+                pdfEstadoGeneral= verificarHijo.verificarFirmaFilePath(pdfHijo);
+                System.out.println(pdfEstadoGeneral);
+
+
+
+            }else{
+                System.out.println(respuesta);
+                Logear.logEmpresasSAS_debug(pdfEstadoGeneral);
+            }
+
+
+
+            respuesta.setEstadoPdf(pdfEstadoGeneral);
+            //http://desabpmpc01.bancogalicia.com.ar:9080/pdfverify/verificarFirma?base64={"base64" : ""}
+            //Object to JSON in String
+            String jsonInString = mapper.writeValueAsString(respuesta);
+            System.out.println(jsonInString);
+            //resp.getWriter().write("JsonService POST " + jsonInString);
 
         } catch (Exception e) {
             e.printStackTrace();
             Logear.logEmpresasSAS_debug("Error al verificar PDF");
         }
+
+
         Logear.logEmpresasSAS_debug("*****************************************************************************************************");
     }
     private static String leerArchivo() {
@@ -81,5 +130,17 @@ public class A {
         }
         return sb.toString();
 
+    }
+    public static byte[] decode(String    data)
+    {
+        Encoder encoder = new Base64Encoder();
+        int len = data.length() / 4 * 3;
+        ByteArrayOutputStream bOut = new ByteArrayOutputStream(len);
+
+        try{
+            encoder.decode(data, bOut);
+        }catch (Exception e){}
+
+        return bOut.toByteArray();
     }
 }
