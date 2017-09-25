@@ -86,7 +86,6 @@ public class JsonService extends HttpServlet {
             }
 
 
-
             respuesta.setEstadoArchivo(estadoArchivo);
             respuesta.setEstadoFirma(estadoFirma);
             //http://desabpmpc01.bancogalicia.com.ar:9080/pdfverify/verificarFirma?base64={"base64" : ""}
