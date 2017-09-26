@@ -7,35 +7,13 @@
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/JsonService.java" line="91" mnemonic="7" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/JsonService.java" line="92" mnemonic="7" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="255edcd1-82f0-4e84-9e2a-060cd7b43b29" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager.war" afterPath="$PROJECT_DIR$/target/PDFManager.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/JsonService.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/JsonService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/log/Logear.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/log/Logear.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/test/A.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/test/A.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/CertificateValidation.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/CertificateValidation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/ExtractEmbeddedFiles.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/ExtractEmbeddedFiles.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/PDFBase64.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/PDFBase64.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/Respuesta.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/Respuesta.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/SignatureIntegrity.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/SignatureIntegrity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/JsonService.class" afterPath="$PROJECT_DIR$/target/classes/JsonService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/log/Logear.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/log/Logear.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/test/A.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/test/A.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/test/B.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/test/B.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/CertificateValidation.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/CertificateValidation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/ExtractEmbeddedFiles.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/ExtractEmbeddedFiles.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/PDFBase64.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/PDFBase64.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/Respuesta.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/Respuesta.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/SignatureIntegrity.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/SignatureIntegrity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PDFManager.iml" afterPath="$PROJECT_DIR$/PDFManager.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/JsonService.java" afterPath="$PROJECT_DIR$/src/main/java/JsonService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/target/PDFManager/META-INF/MANIFEST.MF" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -147,8 +125,8 @@
       <file leaf-file-name="JsonService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/JsonService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="50" column="69" lean-forward="false" selection-start-line="50" selection-start-column="63" selection-end-line="50" selection-end-column="69" />
+            <state relative-caret-position="272">
+              <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -272,22 +250,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PDFManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pdfmanager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
       <pane id="Scratches">
         <subPane>
           <PATH>
@@ -328,6 +290,22 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="PDFManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pdfmanager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -907,6 +885,9 @@
       <workItem from="1506430256194" duration="1255000" />
       <workItem from="1506434091701" duration="328000" />
       <workItem from="1506434859905" duration="603000" />
+      <workItem from="1506437442726" duration="8000" />
+      <workItem from="1506445179264" duration="190000" />
+      <workItem from="1506452992506" duration="86000" />
     </task>
     <task id="LOCAL-00001" summary="Prueba desde intellij">
       <created>1505824104122</created>
@@ -940,7 +921,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46746000" />
+    <option name="totallyTimeSpent" value="47030000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -965,10 +946,10 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48553056" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2739872" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2835821" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1031,6 +1012,52 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/JsonService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="50" column="62" lean-forward="true" selection-start-line="50" selection-start-column="62" selection-end-line="50" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="69" column="21" lean-forward="false" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/JsonService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1564">
+          <caret line="92" column="49" lean-forward="false" selection-start-line="92" selection-start-column="12" selection-end-line="92" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="69" column="21" lean-forward="false" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/JsonService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="50" column="69" lean-forward="false" selection-start-line="50" selection-start-column="63" selection-end-line="50" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1173">
@@ -1489,8 +1516,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/JsonService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="50" column="69" lean-forward="false" selection-start-line="50" selection-start-column="63" selection-end-line="50" selection-end-column="69" />
+        <state relative-caret-position="272">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

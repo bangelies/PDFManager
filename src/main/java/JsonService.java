@@ -14,6 +14,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -42,8 +43,8 @@ public class JsonService extends HttpServlet {
         int estadoArchivo=1;
         ObjectMapper mapper = new ObjectMapper();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssss");
-        String date = sdf.format(new Date());
+        LocalDateTime ldt = LocalDateTime.now();
+        String date =ldt.toString();
         String pdfPadre="/ibm/bpmLogs/tmpPadre_"+date+".pdf";
         String pdfHijo="/ibm/bpmLogs/tmpHijo_"+date+".pdf";
 
