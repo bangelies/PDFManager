@@ -47,7 +47,6 @@ public class JsonService extends HttpServlet {
         String pdfPadre="/ibm/bpmLogs/tmpPadre_"+date+".pdf";
         String pdfHijo="/ibm/bpmLogs/tmpHijo_"+date+".pdf";
 
-
         try {
             PDFBase64 obj = mapper.readValue(req.getParameter("base64"), PDFBase64.class);
 
@@ -91,7 +90,7 @@ public class JsonService extends HttpServlet {
             //http://desabpmpc01.bancogalicia.com.ar:9080/pdfverify/verificarFirma?base64={"base64" : ""}
             //Object to JSON in String
             String jsonInString = mapper.writeValueAsString(respuesta);
-            resp.getWriter().write("JsonService POST " + jsonInString);
+            resp.getWriter().write(jsonInString);
 
         } catch (Exception e) {
             e.printStackTrace();
