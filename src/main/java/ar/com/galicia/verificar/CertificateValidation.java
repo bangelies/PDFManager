@@ -37,10 +37,14 @@ public class CertificateValidation extends SignatureIntegrity {
 		Certificate[] certs = pkcs7.getSignCertificateChain();
 		Calendar cal = pkcs7.getSignDate();
 		List<VerificationException> errors = CertificateVerification.verifyCertificates(certs, ks, cal);
-		if (errors.size() == 0)
+		if (errors.size() == 0){
 			Logear.logEmpresasSAS_debug("Certificates verified against the KeyStore");
-		else
-			Logear.logEmpresasSAS_debug(errors.toString());
+			System.out.println("YES");
+		}
+		else{
+			integridadFirmas=false;
+			System.out.println("NO");
+			Logear.logEmpresasSAS_debug(errors.toString());}
 		for (int i = 0; i < certs.length; i++) {
 			X509Certificate cert = (X509Certificate) certs[i];
 			Logear.logEmpresasSAS_debug("=== Certificate " + i + " ===");
@@ -126,7 +130,7 @@ public class CertificateValidation extends SignatureIntegrity {
 
 		ks.load(null, null);
 		CertificateFactory cf = CertificateFactory.getInstance("X.509");
-		ks.setCertificateEntry("cacert",cf.generateCertificate(new FileInputStream("/ibm/bpmLogs/acraizra.crt")));
+		ks.setCertificateEntry("cacert",cf.generateCertificate(new FileInputStream("/ibm/bpmLogs/ACRaiz.cer")));
 		setKeyStore(ks);
 
 		//Verificar BASE64
@@ -159,7 +163,7 @@ public class CertificateValidation extends SignatureIntegrity {
 
 		ks.load(null, null);
 		CertificateFactory cf = CertificateFactory.getInstance("X.509");
-		ks.setCertificateEntry("cacert",cf.generateCertificate(new FileInputStream("/ibm/bpmLogs/acraizra.crt")));
+		ks.setCertificateEntry("cacert",cf.generateCertificate(new FileInputStream("/ibm/bpmLogs/ACRaiz.cer")));
 		setKeyStore(ks);
 
 		//Verificar BASE64

@@ -67,6 +67,7 @@ public class A {
                     estadoFirma= verificarHijo.verificarFirmaFilePath(pdfHijo);
                     System.out.println("estadoFirma "+estadoFirma);
                 }else{
+                    System.out.println("sin adjunto");
                     estadoArchivo=2;
                 }
 
@@ -102,7 +103,7 @@ public class A {
         try {
 
             //br = new BufferedReader(new FileReader(FILENAME));
-            fr = new FileReader("E:\\SAS\\PDFs\\2017091222510001_ActaModelo.txt");
+            fr = new FileReader("E:\\SAS\\PDFs\\2017090711350004_IF-2017-19191094-APN-DA#IGJ - Documento Constitutivo.txt");
             br = new BufferedReader(fr);
 
             String sCurrentLine;
