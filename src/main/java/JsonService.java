@@ -91,6 +91,8 @@ public class JsonService extends HttpServlet {
             //http://desabpmpc01.bancogalicia.com.ar:9080/pdfverify/verificarFirma?base64={"base64" : ""}
             //Object to JSON in String
             String jsonInString = mapper.writeValueAsString(respuesta);
+
+            Logear.logEmpresasSAS_debug(jsonInString);
             resp.getWriter().write(jsonInString);
 
         } catch (Exception e) {

@@ -11,21 +11,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="255edcd1-82f0-4e84-9e2a-060cd7b43b29" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/JsonService.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/log/Logear.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/test/A.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/test/B.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/CertificateValidation.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/ExtractEmbeddedFiles.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/PDFBase64.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/Respuesta.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/SignatureIntegrity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/PDFManager.war" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/JsonService.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/JsonService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/log/Logear.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/log/Logear.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/test/A.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/test/A.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/test/B.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/test/B.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/CertificateValidation.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/CertificateValidation.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/ExtractEmbeddedFiles.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/ExtractEmbeddedFiles.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/PDFBase64.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/PDFBase64.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/Respuesta.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/Respuesta.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/SignatureIntegrity.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/SignatureIntegrity.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/JsonService.class" afterPath="$PROJECT_DIR$/target/classes/JsonService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/log/Logear.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/log/Logear.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/test/A.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/test/A.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/test/B.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/test/B.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/CertificateValidation.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/CertificateValidation.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/ExtractEmbeddedFiles.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/ExtractEmbeddedFiles.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/PDFBase64.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/PDFBase64.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/Respuesta.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/Respuesta.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/SignatureIntegrity.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/SignatureIntegrity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PDFManager.iml" afterPath="$PROJECT_DIR$/PDFManager.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/JsonService.java" afterPath="$PROJECT_DIR$/src/main/java/JsonService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/target/PDFManager/META-INF/MANIFEST.MF" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -127,30 +138,28 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="97" column="31" lean-forward="false" selection-start-line="97" selection-start-column="31" selection-end-line="97" selection-end-column="31" />
+            <state relative-caret-position="453">
+              <caret line="89" column="23" lean-forward="false" selection-start-line="89" selection-start-column="23" selection-end-line="89" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="A.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="A.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="92" column="9" lean-forward="false" selection-start-line="92" selection-start-column="9" selection-end-line="92" selection-end-column="9" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+            <state relative-caret-position="235">
+              <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JsonService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="JsonService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/JsonService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="134">
-              <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+              <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -212,8 +221,8 @@
         <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/CertificateValidation.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/log/Logear.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/JsonService.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -463,10 +472,10 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="last_opened_file_path" value="E:/AccionesEmpresaSASImpl.class" />
@@ -1048,7 +1057,7 @@
       <workItem from="1506452992506" duration="86000" />
       <workItem from="1506518332410" duration="1474000" />
       <workItem from="1506522778399" duration="1433000" />
-      <workItem from="1506540042015" duration="9514000" />
+      <workItem from="1506540042015" duration="12680000" />
     </task>
     <task id="LOCAL-00001" summary="Prueba desde intellij">
       <created>1505824104122</created>
@@ -1082,7 +1091,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59451000" />
+    <option name="totallyTimeSpent" value="62617000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1456" height="886" extended-state="6" />
@@ -1109,7 +1118,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41035858" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41035858" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18982808" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1651,20 +1660,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="92" column="9" lean-forward="false" selection-start-line="92" selection-start-column="9" selection-end-line="92" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="97" column="31" lean-forward="false" selection-start-line="97" selection-start-column="31" selection-end-line="97" selection-end-column="31" />
+        <state relative-caret-position="453">
+          <caret line="89" column="23" lean-forward="false" selection-start-line="89" selection-start-column="23" selection-end-line="89" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1672,7 +1671,15 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/JsonService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="134">
-          <caret line="15" column="34" lean-forward="false" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1719,7 +1726,7 @@
       </state>
       <state key="JdkListConfigurable.UI">
         <settings>
-          <last-edited>1.7</last-edited>
+          <last-edited>1.6</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -1736,7 +1743,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
