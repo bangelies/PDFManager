@@ -9,8 +9,8 @@
         <module name="PDFManager" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="PDFManager" target="1.8" />
+    <bytecodeTargetLevel target="1.7">
+      <module name="PDFManager" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

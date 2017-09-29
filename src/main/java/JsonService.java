@@ -14,8 +14,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.UUID;
 
 /**
  * Created by l0633615 on 12/09/2017.
@@ -43,10 +43,10 @@ public class JsonService extends HttpServlet {
         int estadoArchivo=1;
         ObjectMapper mapper = new ObjectMapper();
 
-        LocalDateTime ldt = LocalDateTime.now();
-        String date =ldt.toString();
-        String pdfPadre="/ibm/bpmLogs/tmpPadre_"+date+".pdf";
-        String pdfHijo="/ibm/bpmLogs/tmpHijo_"+date+".pdf";
+
+        String uuid = UUID.randomUUID().toString();
+        String pdfPadre="/ibm/bpmLogs/tmpPadre_"+uuid+".pdf";
+        String pdfHijo="/ibm/bpmLogs/tmpHijo_"+uuid+".pdf";
 
         try {
             PDFBase64 obj = mapper.readValue(req.getParameter("base64"), PDFBase64.class);
