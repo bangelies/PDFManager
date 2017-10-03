@@ -1,3 +1,4 @@
+import ar.com.galicia.config.Propiedades;
 import ar.com.galicia.log.Logear;
 import ar.com.galicia.verificar.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -45,8 +46,8 @@ public class JsonService extends HttpServlet {
 
 
         String uuid = UUID.randomUUID().toString();
-        String pdfPadre="/ibm/bpmLogs/tmpPadre_"+uuid+".pdf";
-        String pdfHijo="/ibm/bpmLogs/tmpHijo_"+uuid+".pdf";
+        String pdfPadre= Propiedades.pdfExtractor+"tmpPadre_"+uuid+".pdf";
+        String pdfHijo=Propiedades.pdfExtractor+"tmpHijo_"+uuid+".pdf";
 
         try {
             PDFBase64 obj = mapper.readValue(req.getParameter("base64"), PDFBase64.class);

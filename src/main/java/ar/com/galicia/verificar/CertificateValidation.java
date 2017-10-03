@@ -1,5 +1,6 @@
 package ar.com.galicia.verificar;
 
+import ar.com.galicia.config.Propiedades;
 import ar.com.galicia.log.Logear;
 import com.itextpdf.text.log.LoggerFactory;
 import com.itextpdf.text.log.SysoLogger;
@@ -130,7 +131,7 @@ public class CertificateValidation extends SignatureIntegrity {
 
 		ks.load(null, null);
 		CertificateFactory cf = CertificateFactory.getInstance("X.509");
-		ks.setCertificateEntry("cacert",cf.generateCertificate(new FileInputStream("/ibm/bpmLogs/ACRaiz.cer")));
+		ks.setCertificateEntry("cacert",cf.generateCertificate(new FileInputStream(Propiedades.path+Propiedades.certificado)));
 		setKeyStore(ks);
 
 		//Verificar BASE64
@@ -163,7 +164,7 @@ public class CertificateValidation extends SignatureIntegrity {
 
 		ks.load(null, null);
 		CertificateFactory cf = CertificateFactory.getInstance("X.509");
-		ks.setCertificateEntry("cacert",cf.generateCertificate(new FileInputStream("/ibm/bpmLogs/ACRaiz.cer")));
+		ks.setCertificateEntry("cacert",cf.generateCertificate(new FileInputStream(Propiedades.path+Propiedades.certificado)));
 		setKeyStore(ks);
 
 		//Verificar BASE64

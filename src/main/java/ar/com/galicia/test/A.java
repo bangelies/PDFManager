@@ -103,7 +103,7 @@ public class A {
         try {
 
             //br = new BufferedReader(new FileReader(FILENAME));
-            fr = new FileReader("E:\\SAS\\PDFs\\2017090711350004_IF-2017-19191094-APN-DA#IGJ - Documento Constitutivo.txt");
+            fr = new FileReader("E:\\SAS\\PDFs\\IF-2017-20442925-APN-DA#IGJ.txt");
             br = new BufferedReader(fr);
 
             String sCurrentLine;
