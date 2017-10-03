@@ -85,7 +85,7 @@ public class A {
             //Object to JSON in String
             String jsonInString = mapper.writeValueAsString(respuesta);
             System.out.println(jsonInString);
-            //resp.getWriter().write("JsonService POST " + jsonInString);
+            //resp.getWriter().write("ar.com.galicia.verificar.JsonService POST " + jsonInString);
 
         } catch (Exception e) {
             e.printStackTrace();
