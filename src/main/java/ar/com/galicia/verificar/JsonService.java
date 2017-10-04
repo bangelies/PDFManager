@@ -17,7 +17,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -41,59 +43,65 @@ public class JsonService extends HttpServlet {
         //String base64 = leerArchivo();
 
 
-        Respuesta respuesta = new Respuesta();
-        int estadoFirma =1;
-        int estadoArchivo=1;
         ObjectMapper mapper = new ObjectMapper();
-
-
+        boolean tieneAdjuntos = false;
+        boolean isPadreOk=true;
+        boolean isHijoOk=true;
         String uuid = UUID.randomUUID().toString();
+
         String pdfPadre= Propiedades.pdfExtractor+"tmpPadre_"+uuid+".pdf";
         String pdfHijo=Propiedades.pdfExtractor+"tmpHijo_"+uuid+".pdf";
 
         try {
             PDFBase64 obj = mapper.readValue(req.getParameter("base64"), PDFBase64.class);
-
-
-
-
-            //Verificar PADRE
-            Logear.logEmpresasSAS_debug("PDF Padre inicio ----------");
-            CertificateValidation verificarPadre = new CertificateValidation();
-            estadoFirma = verificarPadre.verificarFirmaBase64(obj.getBase64());
-            Logear.logEmpresasSAS_debug("pdfEstadoGeneral "+estadoFirma);
-
             FileUtils.writeByteArrayToFile(new File(pdfPadre), decode(obj.getBase64()));
-            Logear.logEmpresasSAS_debug("PDF Padre fin ----------");
-            //Verificar HIJO
-            if(estadoFirma==1){
-                Logear.logEmpresasSAS_debug("PDF Hijo inicio ----------");
-                ExtractEmbeddedFiles eef = new ExtractEmbeddedFiles(pdfHijo);
-                boolean tieneAdjuntos = eef.extraerAdjuntos(pdfPadre);
 
-                if(tieneAdjuntos){
-                    CertificateValidation verificarHijo = new CertificateValidation();
-                    estadoFirma= verificarHijo.verificarFirmaFilePath(pdfHijo);
-                    Logear.logEmpresasSAS_debug("pdfEstadoGeneral "+estadoFirma);
-                }else{
-                    estadoArchivo= 2;
+            //Verifico que exista el estatuto
+            Logear.logEmpresasSAS_debug("Verifico que exista adjuntos. . .");
+            ExtractEmbeddedFiles eef = new ExtractEmbeddedFiles(pdfHijo);
+            tieneAdjuntos = eef.extraerAdjuntos(pdfPadre);
+
+            if (tieneAdjuntos){
+                Logear.logEmpresasSAS_debug("Ok");
+                //Verificar PADRE
+                Logear.logEmpresasSAS_debug("-===< PDF Padre >===-");
+                List<EstadoFirma> padre = imprimirResultado(pdfPadre);
+
+                for (EstadoFirma estadofirma: padre) {
+                    if(estadofirma.isIntegridad() & estadofirma.isValidez()){
+                        Logear.logEmpresasSAS_debug("PDF Padre = OK");
+                    }else{
+                        Logear.logEmpresasSAS_debug("PDF Padre = NOT OK");
+                        isPadreOk=false;
+                    }
                 }
+                if(isPadreOk){
+                    Logear.logEmpresasSAS_debug("-===< PDF Hijo >===-");
+                    List<EstadoFirma> hijo = imprimirResultado(pdfHijo);
 
-
-
-                Logear.logEmpresasSAS_debug("PDF Hijo fin ----------");
-
+                    for (EstadoFirma estadofirma: hijo) {
+                        if(estadofirma.isIntegridad() & estadofirma.isValidez()){
+                            Logear.logEmpresasSAS_debug("PDF Hijo = OK");
+                        }else{
+                            Logear.logEmpresasSAS_debug("PDF Hijo = NOT OK");
+                            isHijoOk=false;
+                        }
+                    }
+                }
             }else{
-                //System.out.println(respuesta);
-                Logear.logEmpresasSAS_debug("Error al verificar firmas");
+                Logear.logEmpresasSAS_debug("No hay adjuntos, ni me molesto en continuar.");
+                isPadreOk=false;
+                isHijoOk=false;
             }
+            Logear.logEmpresasSAS_debug("Estado general Padre: "+isPadreOk);
+            Logear.logEmpresasSAS_debug("Estado general Hijo: "+isHijoOk);
 
 
-            respuesta.setEstadoArchivo(estadoArchivo);
-            respuesta.setEstadoFirma(estadoFirma);
-            //http://desabpmpc01.bancogalicia.com.ar:9080/pdfverify/verificarFirma?base64={"base64" : ""}
+            boolean resultadoFinal= isHijoOk & isPadreOk?true:false;
+
             //Object to JSON in String
-            String jsonInString = mapper.writeValueAsString(respuesta);
+            String jsonInString = mapper.writeValueAsString(resultadoFinal);
+            Logear.logEmpresasSAS_debug("Resultado final:"+jsonInString);
 
             Logear.logEmpresasSAS_debug(jsonInString);
             resp.getWriter().write(jsonInString);
@@ -105,6 +113,26 @@ public class JsonService extends HttpServlet {
 
 
         Logear.logEmpresasSAS_debug("*****************************************************************************************************");
+    }
+    private static  List<EstadoFirma> imprimirResultado(String pdf){
+        List<EstadoFirma> response= new ArrayList<EstadoFirma>();
+        try {
+            CertificateValidation cv = new CertificateValidation();
+            response = cv.verificarFirmaFilePath(pdf);
+
+
+            for (EstadoFirma ef : response) {
+                Logear.logEmpresasSAS_debug("---> Nombre firma: " + ef.getNombreFirma());
+                Logear.logEmpresasSAS_debug("---> Integridad: " + ef.isIntegridad());
+                Logear.logEmpresasSAS_debug("---> Validez: " + ef.isValidez());
+                if(ef.isValidez()==false){
+                    Logear.logEmpresasSAS_debug("Firma invalida: "+ef.getFirmaInvalida());
+                }
+            }
+        }catch(Exception e){
+            Logear.logEmpresasSAS_debug("---> El documento no tiene firmas" );
+        }
+        return response;
     }
     private byte[] decode(String data)
     {
