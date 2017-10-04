@@ -33,8 +33,8 @@ public class CertificateValidation {
 
 
 
-	public EstadoFirma verifySignature(AcroFields fields, String name) throws GeneralSecurityException, IOException {
-		EstadoFirma ef = new EstadoFirma();
+	public EstadoDocumento verifySignature(AcroFields fields, String name) throws GeneralSecurityException, IOException {
+		EstadoDocumento ef = new EstadoDocumento();
 
 		conFirmas=true;
 //		PdfPKCS7 pkcs7 = super.verifySignature(fields, name);
@@ -59,7 +59,7 @@ public class CertificateValidation {
 		for (int i = 0; i < certs.length; i++) {
 			X509Certificate cert = (X509Certificate) certs[i];
 			Logear.logEmpresasSAS_debug("=== Certificate " + i + " ===");
-			showCertificateInfo(cert, cal.getTime());
+			showCertificateInfo(cert, cal.getTime(),ef);
 		}
 		X509Certificate signCert = (X509Certificate)certs[0];
 		X509Certificate issuerCert = (certs.length > 1 ? (X509Certificate)certs[1] : null);
@@ -100,9 +100,10 @@ public class CertificateValidation {
 		}
 	}
 
-	public void showCertificateInfo(X509Certificate cert, Date signDate) {
+	public void showCertificateInfo(X509Certificate cert, Date signDate,EstadoDocumento ef) {
 		Logear.logEmpresasSAS_debug("Issuer: " + cert.getIssuerDN());
 		Logear.logEmpresasSAS_debug("Subject: " + cert.getSubjectDN());
+		ef.setNombreFirma(""+cert.getSubjectDN());
 		SimpleDateFormat date_format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SS");
 		Logear.logEmpresasSAS_debug("Valid from: " + date_format.format(cert.getNotBefore()));
 		Logear.logEmpresasSAS_debug("Valid to: " + date_format.format(cert.getNotAfter()));
@@ -128,42 +129,42 @@ public class CertificateValidation {
 		this.ks = ks;
 	}
 
-	public List<EstadoFirma> verificarFirmaBase64(String base64) throws IOException,GeneralSecurityException {
-		Logear.logEmpresasSAS_debug("Inicio verificarFirma *************************");
-
-		//LoggerFactory.getInstance().setLogger(new SysoLogger());
-		BouncyCastleProvider provider = new BouncyCastleProvider();
-		Security.addProvider(provider);
-		//CertificateValidation app = new CertificateValidation();
-		KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
-
-		ks.load(null, null);
-		CertificateFactory cf = CertificateFactory.getInstance("X.509");
-		ks.setCertificateEntry("cacert",cf.generateCertificate(new FileInputStream(Propiedades.path+Propiedades.certificado)));
-		setKeyStore(ks);
-
-		//Verificar BASE64
-		//verifySignaturesBase64(base64);
-
-		PdfReader reader = new PdfReader(decode(base64));
-		AcroFields fields = reader.getAcroFields();
-		ArrayList<String> names = fields.getSignatureNames();
-
-		//Genero la lista de salida con el resultado de las firmas
-		List<EstadoFirma> listaEstadoFirmas = new ArrayList<EstadoFirma>();
-		for (String name : names) {
-			Logear.logEmpresasSAS_debug("===== " + name + " =====");
-			EstadoFirma ef = verifySignature(fields, name);
-			ef.setNombreFirma(name);
-			ef.setTieneFirmas(conFirmas);
-			listaEstadoFirmas.add(ef);
-		}
-
-		Logear.logEmpresasSAS_debug("Fin *************************");
-
-		return listaEstadoFirmas;
-	}
-	public List<EstadoFirma> verificarFirmaFilePath(String path) throws IOException,GeneralSecurityException, Exception {
+//	public List<EstadoDocumento> verificarFirmaBase64(String base64) throws IOException,GeneralSecurityException {
+//		Logear.logEmpresasSAS_debug("Inicio verificarFirma *************************");
+//
+//		//LoggerFactory.getInstance().setLogger(new SysoLogger());
+//		BouncyCastleProvider provider = new BouncyCastleProvider();
+//		Security.addProvider(provider);
+//		//CertificateValidation app = new CertificateValidation();
+//		KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
+//
+//		ks.load(null, null);
+//		CertificateFactory cf = CertificateFactory.getInstance("X.509");
+//		ks.setCertificateEntry("cacert",cf.generateCertificate(new FileInputStream(Propiedades.path+Propiedades.certificado)));
+//		setKeyStore(ks);
+//
+//		//Verificar BASE64
+//		//verifySignaturesBase64(base64);
+//
+//		PdfReader reader = new PdfReader(decode(base64));
+//		AcroFields fields = reader.getAcroFields();
+//		ArrayList<String> names = fields.getSignatureNames();
+//
+//		//Genero la lista de salida con el resultado de las firmas
+//		List<EstadoDocumento> listaEstadoFirmas = new ArrayList<EstadoDocumento>();
+//		for (String name : names) {
+//			Logear.logEmpresasSAS_debug("===== " + name + " =====");
+//			EstadoDocumento ef = verifySignature(fields, name);
+//			//ef.setNombreFirma(name);
+//			ef.setTieneFirmas(conFirmas);
+//			listaEstadoFirmas.add(ef);
+//		}
+//
+//		Logear.logEmpresasSAS_debug("Fin *************************");
+//
+//		return listaEstadoFirmas;
+//	}
+	public List<EstadoDocumento> verificarFirmaFilePath(String path) throws IOException,GeneralSecurityException, Exception {
 		Logear.logEmpresasSAS_debug("Inicio verificarFirma *************************");
 
 		//LoggerFactory.getInstance().setLogger(new SysoLogger());
@@ -184,7 +185,7 @@ public class CertificateValidation {
 		ArrayList<String> names = fields.getSignatureNames();
 
 		//Genero la lista de salida con el resultado de las firmas
-		List<EstadoFirma> listaEstadoFirmas = new ArrayList<EstadoFirma>();
+		List<EstadoDocumento> listaEstadoFirmas = new ArrayList<EstadoDocumento>();
 
 		if(names.size()==0){
 			throw new Exception("No tiene firmas");
@@ -192,9 +193,9 @@ public class CertificateValidation {
 
 		for (String name : names) {
 			Logear.logEmpresasSAS_debug("===== " + name + " =====");
-			EstadoFirma ef = verifySignature(fields, name);
-			ef.setNombreFirma(name);
-			ef.setTieneFirmas(conFirmas);
+			EstadoDocumento ef = verifySignature(fields, name);
+			//ef.setNombreFirma(name);
+			ef.setHayFirmas(conFirmas);
 			listaEstadoFirmas.add(ef);
 		}
 
@@ -202,18 +203,18 @@ public class CertificateValidation {
 
 		return listaEstadoFirmas;
 	}
-	public byte[] decode(String    data)
-	{
-		int len = data.length() / 4 * 3;
-		ByteArrayOutputStream bOut = new ByteArrayOutputStream(len);
-
-		try	{
-			encoder.decode(data, bOut);
-		}catch (Exception e)
-		{
-			Logear.logEmpresasSAS_error("Error al decodear el PDF");
-		}
-		return bOut.toByteArray();
-	}
+//	public byte[] decode(String    data)
+//	{
+//		int len = data.length() / 4 * 3;
+//		ByteArrayOutputStream bOut = new ByteArrayOutputStream(len);
+//
+//		try	{
+//			encoder.decode(data, bOut);
+//		}catch (Exception e)
+//		{
+//			Logear.logEmpresasSAS_error("Error al decodear el PDF");
+//		}
+//		return bOut.toByteArray();
+//	}
 
 }

@@ -65,9 +65,9 @@ public class JsonService extends HttpServlet {
                 Logear.logEmpresasSAS_debug("Ok");
                 //Verificar PADRE
                 Logear.logEmpresasSAS_debug("-===< PDF Padre >===-");
-                List<EstadoFirma> padre = imprimirResultado(pdfPadre);
+                List<EstadoDocumento> padre = imprimirResultado(pdfPadre);
 
-                for (EstadoFirma estadofirma: padre) {
+                for (EstadoDocumento estadofirma: padre) {
                     if(estadofirma.isIntegridad() & estadofirma.isValidez()){
                         Logear.logEmpresasSAS_debug("PDF Padre = OK");
                     }else{
@@ -77,9 +77,9 @@ public class JsonService extends HttpServlet {
                 }
                 if(isPadreOk){
                     Logear.logEmpresasSAS_debug("-===< PDF Hijo >===-");
-                    List<EstadoFirma> hijo = imprimirResultado(pdfHijo);
+                    List<EstadoDocumento> hijo = imprimirResultado(pdfHijo);
 
-                    for (EstadoFirma estadofirma: hijo) {
+                    for (EstadoDocumento estadofirma: hijo) {
                         if(estadofirma.isIntegridad() & estadofirma.isValidez()){
                             Logear.logEmpresasSAS_debug("PDF Hijo = OK");
                         }else{
@@ -114,14 +114,14 @@ public class JsonService extends HttpServlet {
 
         Logear.logEmpresasSAS_debug("*****************************************************************************************************");
     }
-    private static  List<EstadoFirma> imprimirResultado(String pdf){
-        List<EstadoFirma> response= new ArrayList<EstadoFirma>();
+    private static  List<EstadoDocumento> imprimirResultado(String pdf){
+        List<EstadoDocumento> response= new ArrayList<EstadoDocumento>();
         try {
             CertificateValidation cv = new CertificateValidation();
             response = cv.verificarFirmaFilePath(pdf);
 
 
-            for (EstadoFirma ef : response) {
+            for (EstadoDocumento ef : response) {
                 Logear.logEmpresasSAS_debug("---> Nombre firma: " + ef.getNombreFirma());
                 Logear.logEmpresasSAS_debug("---> Integridad: " + ef.isIntegridad());
                 Logear.logEmpresasSAS_debug("---> Validez: " + ef.isValidez());

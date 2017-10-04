@@ -33,7 +33,7 @@ import com.itextpdf.text.pdf.security.VerificationOK;
  
 public class C5_03_CertificateValidation extends C5_01_SignatureIntegrity {
     public static final String ADOBE = "e:/ibm/bpmLogs/ACRaiz.cer";
-//	public static final String CACERT = "src/main/resources/CACertSigningAuthority.crt";
+	public static final String CACERT = "src/main/resources/CACertSigningAuthority.crt";
 //	public static final String BRUNO = "src/main/resources/bruno.crt";
  
 	public static final String EXAMPLE1 ="e:/SAS/PDFs/tmpHijo_2017100314070013_StarGate.pdf";
@@ -133,8 +133,8 @@ public class C5_03_CertificateValidation extends C5_01_SignatureIntegrity {
 		CertificateFactory cf = CertificateFactory.getInstance("X.509");
 		ks.setCertificateEntry("adobe",
 				cf.generateCertificate(new FileInputStream(ADOBE)));
-//		ks.setCertificateEntry("cacert",
-//				cf.generateCertificate(new FileInputStream(CACERT)));
+		ks.setCertificateEntry("cacert",
+				cf.generateCertificate(new FileInputStream(CACERT)));
 //		ks.setCertificateEntry("bruno",
 //				cf.generateCertificate(new FileInputStream(BRUNO)));
 		app.setKeyStore(ks);

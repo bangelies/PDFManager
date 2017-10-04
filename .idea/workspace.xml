@@ -8,22 +8,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="255edcd1-82f0-4e84-9e2a-060cd7b43b29" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ar/com/galicia/test/C5_01_SignatureIntegrity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ar/com/galicia/test/C5_03_CertificateValidation.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/EstadoFirma.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/Respuesta.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/SignatureIntegrity.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/Respuesta.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/SignatureIntegrity.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/EstadoFirma.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/config/Propiedades.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/config/Propiedades.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/test/A.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/test/A.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/test/C5_03_CertificateValidation.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/test/C5_03_CertificateValidation.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/CertificateValidation.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/CertificateValidation.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/JsonService.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/JsonService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ar/com/galicia/config/Propiedades.java" afterPath="$PROJECT_DIR$/src/main/java/ar/com/galicia/config/Propiedades.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java" afterPath="$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ar/com/galicia/test/C5_03_CertificateValidation.java" afterPath="$PROJECT_DIR$/src/main/java/ar/com/galicia/test/C5_03_CertificateValidation.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/CertificateValidation.java" afterPath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/CertificateValidation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/ExtractEmbeddedFiles.java" afterPath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/ExtractEmbeddedFiles.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/JsonService.java" afterPath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/JsonService.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/EstadoFirma.java" afterPath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/EstadoDocumento.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -56,47 +53,42 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="JsonService.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/JsonService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="610">
-              <caret line="74" column="40" lean-forward="true" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
-              <folding>
-                <element signature="e#4641#4654#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ExtractEmbeddedFiles.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/ExtractEmbeddedFiles.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="76" column="48" lean-forward="true" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="A.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="A.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-60">
-              <caret line="49" column="56" lean-forward="false" selection-start-line="49" selection-start-column="56" selection-end-line="49" selection-end-column="56" />
+            <state relative-caret-position="491">
+              <caret line="108" column="45" lean-forward="true" selection-start-line="108" selection-start-column="45" selection-end-line="108" selection-end-column="45" />
               <folding>
-                <element signature="e#3840#3853#0" expanded="true" />
+                <element signature="e#3854#3871#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EstadoFirma.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/EstadoFirma.java">
+      <file leaf-file-name="EstadoDocumento.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/EstadoDocumento.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="52" column="38" lean-forward="false" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
+            <state relative-caret-position="459">
+              <caret line="66" column="28" lean-forward="false" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="28" />
               <folding>
-                <element signature="e#1176#1177#0" expanded="true" />
+                <element signature="e#1167#1168#0" expanded="true" />
+                <element signature="e#1199#1200#0" expanded="true" />
+                <element signature="e#1250#1251#0" expanded="true" />
+                <element signature="e#1292#1293#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CertificateValidation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/CertificateValidation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="498">
+              <caret line="187" column="47" lean-forward="false" selection-start-line="187" selection-start-column="30" selection-end-line="187" selection-end-column="47" />
+              <folding>
+                <element signature="e#2889#2904#0" expanded="true" />
+                <element signature="e#3193#3202#0" expanded="true" />
+                <element signature="e#7575#7592#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -120,6 +112,9 @@
       <find>Logear.logEmpresasSAS_debug</find>
       <find>Integridad</find>
       <find>System.out.println(</find>
+      <find>generateCertificate</find>
+      <find>Sub</find>
+      <find>setNombreFirma</find>
     </findStrings>
     <replaceStrings>
       <replace>System.out.println(</replace>
@@ -164,18 +159,19 @@
         <option value="$PROJECT_DIR$/src/main/java/A.java" />
         <option value="$PROJECT_DIR$/src/main/java/JsonService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/H.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/config/Propiedades.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/ExtractEmbeddedFiles.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/test/C5_03_CertificateValidation.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/test/C5_01_SignatureIntegrity.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/ResultadoEstadoFirma.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/ValidarDocumentoCompleto.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/SignatureIntegrity.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/EstadoFirma.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/test/C5_03_CertificateValidation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/config/Propiedades.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/JsonService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/EstadoDocumento.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/CertificateValidation.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/JsonService.java" />
       </list>
     </option>
   </component>
@@ -319,66 +315,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="galicia" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PDFManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pdfmanager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="galicia" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="PDFManager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pdfmanager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="galicia" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1018,7 +954,7 @@
       <workItem from="1506963954256" duration="159000" />
       <workItem from="1506966135637" duration="9134000" />
       <workItem from="1507043310060" duration="10000" />
-      <workItem from="1507048177625" duration="18325000" />
+      <workItem from="1507048177625" duration="27221000" />
     </task>
     <task id="LOCAL-00001" summary="Prueba desde intellij">
       <created>1505824104122</created>
@@ -1052,7 +988,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90917000" />
+    <option name="totallyTimeSpent" value="99813000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -1150,7 +1086,7 @@
         <state relative-caret-position="476">
           <caret line="28" column="32" lean-forward="false" selection-start-line="28" selection-start-column="32" selection-end-line="28" selection-end-column="32" />
           <folding>
-            <element signature="e#4641#4654#0" expanded="true" />
+            <element signature="e#4665#4682#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1470,14 +1406,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/H.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/config/Propiedades.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
@@ -1490,14 +1418,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/test/C5_03_CertificateValidation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="42" column="1" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
           <folding />
         </state>
       </provider>
@@ -1528,41 +1448,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/CertificateValidation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="102" column="35" lean-forward="false" selection-start-line="102" selection-start-column="35" selection-end-line="102" selection-end-column="35" />
-          <folding>
-            <element signature="e#2874#2889#0" expanded="true" />
-            <element signature="e#3178#3187#0" expanded="true" />
-            <element signature="e#5015#5016#0" expanded="true" />
-            <element signature="e#5034#5035#0" expanded="true" />
-            <element signature="e#6071#6084#0" expanded="true" />
-            <element signature="e#7400#7413#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/EstadoFirma.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="52" column="38" lean-forward="false" selection-start-line="52" selection-start-column="38" selection-end-line="52" selection-end-column="38" />
-          <folding>
-            <element signature="e#1176#1177#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="49" column="56" lean-forward="false" selection-start-line="49" selection-start-column="56" selection-end-line="49" selection-end-column="56" />
-          <folding>
-            <element signature="e#3840#3853#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/PDFBase64.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1579,12 +1464,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/test/C5_03_CertificateValidation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="134" column="38" lean-forward="false" selection-start-line="134" selection-start-column="19" selection-end-line="134" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/config/Propiedades.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="87" lean-forward="false" selection-start-line="8" selection-start-column="44" selection-end-line="8" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/JsonService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="610">
-          <caret line="74" column="40" lean-forward="true" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
+        <state relative-caret-position="627">
+          <caret line="81" column="40" lean-forward="false" selection-start-line="81" selection-start-column="40" selection-end-line="81" selection-end-column="40" />
           <folding>
-            <element signature="e#4641#4654#0" expanded="true" />
+            <element signature="e#4665#4682#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/EstadoDocumento.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="66" column="28" lean-forward="false" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="28" />
+          <folding>
+            <element signature="e#1167#1168#0" expanded="true" />
+            <element signature="e#1199#1200#0" expanded="true" />
+            <element signature="e#1250#1251#0" expanded="true" />
+            <element signature="e#1292#1293#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/CertificateValidation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="187" column="47" lean-forward="false" selection-start-line="187" selection-start-column="30" selection-end-line="187" selection-end-column="47" />
+          <folding>
+            <element signature="e#2889#2904#0" expanded="true" />
+            <element signature="e#3193#3202#0" expanded="true" />
+            <element signature="e#7575#7592#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="108" column="45" lean-forward="true" selection-start-line="108" selection-start-column="45" selection-end-line="108" selection-end-column="45" />
+          <folding>
+            <element signature="e#3854#3871#0" expanded="true" />
           </folding>
         </state>
       </provider>

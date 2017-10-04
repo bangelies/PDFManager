@@ -36,7 +36,7 @@ public class A {
         String date = sdf.format(new Date());
 
         String pdfHijo = "e:/ibm/bpmLogs/tmpHijo_" + date + ".pdf";
-        String pdfPadre = "e:/SAS/PDFs/StarGate Plancha de Certificacion IGJ.pdf";
+        String pdfPadre = "e:/SAS/PDFs/IF-2017-20442925-APN-DA#IGJ.pdf";
         boolean tieneAdjuntos = false;
         boolean isPadreOk=true;
         boolean isHijoOk=true;
@@ -53,9 +53,9 @@ public class A {
                 System.out.println("Ok");
                 //Verificar PADRE
                 System.out.println("-===< PDF Padre >===-");
-                List<EstadoFirma> padre = imprimirResultado(pdfPadre);
+                List<EstadoDocumento> padre = imprimirResultado(pdfPadre);
 
-                for (EstadoFirma estadofirma: padre) {
+                for (EstadoDocumento estadofirma: padre) {
                     if(estadofirma.isIntegridad() & estadofirma.isValidez()){
                         System.out.println("PDF Padre = OK");
                     }else{
@@ -65,9 +65,9 @@ public class A {
                 }
                 if(isPadreOk){
                     System.out.println("-===< PDF Hijo >===-");
-                    List<EstadoFirma> hijo = imprimirResultado(pdfHijo);
+                    List<EstadoDocumento> hijo = imprimirResultado(pdfHijo);
 
-                    for (EstadoFirma estadofirma: hijo) {
+                    for (EstadoDocumento estadofirma: hijo) {
                         if(estadofirma.isIntegridad() & estadofirma.isValidez()){
                             System.out.println("PDF Hijo = OK");
                         }else{
@@ -102,14 +102,14 @@ public class A {
         System.out.println("*****************************************************************************************************");
     }
 
-    private static  List<EstadoFirma> imprimirResultado(String pdf){
-        List<EstadoFirma> response= new ArrayList<EstadoFirma>();
+    private static  List<EstadoDocumento> imprimirResultado(String pdf){
+        List<EstadoDocumento> response= new ArrayList<EstadoDocumento>();
         try {
             CertificateValidation cv = new CertificateValidation();
             response = cv.verificarFirmaFilePath(pdf);
             
 
-            for (EstadoFirma ef : response) {
+            for (EstadoDocumento ef : response) {
                 System.out.println("---> Nombre firma: " + ef.getNombreFirma());
                 System.out.println("---> Integridad: " + ef.isIntegridad());
                 System.out.println("---> Validez: " + ef.isValidez());

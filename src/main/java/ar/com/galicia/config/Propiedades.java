@@ -6,6 +6,6 @@ package ar.com.galicia.config;
 public class Propiedades {
 
     public static final String path="/ibm/bpmLogs/";
-    public static final String certificado="ACRaiz.cer";
+    public static final String certificado="Autoridad Certificante de Firma Digital.cer";
     public static final String pdfExtractor="/ibm/bpmLogs/";
 }
