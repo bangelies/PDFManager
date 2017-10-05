@@ -7,20 +7,12 @@
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/JsonService.java" line="80" mnemonic="7" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/JsonService.java" line="73" mnemonic="7" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="255edcd1-82f0-4e84-9e2a-060cd7b43b29" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ar/com/galicia/entidades/Documento.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/ar/com/galicia/entidades/Firma.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/EstadoDocumento.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/EstadoDocumento.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/test/A.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/test/A.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/CertificateValidation.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/CertificateValidation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/JsonService.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/JsonService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java" afterPath="$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/CertificateValidation.java" afterPath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/CertificateValidation.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/JsonService.java" afterPath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/JsonService.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -58,10 +50,10 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/JsonService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="178">
-              <caret line="77" column="38" lean-forward="true" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
+              <caret line="62" column="49" lean-forward="true" selection-start-line="62" selection-start-column="49" selection-end-line="62" selection-end-column="49" />
               <folding>
-                <element signature="e#2389#2397#0" expanded="true" />
-                <element signature="e#3461#3472#0" expanded="true" />
+                <element signature="e#2167#2175#0" expanded="true" />
+                <element signature="e#3169#3180#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -70,11 +62,11 @@
       <file leaf-file-name="A.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="43" column="45" lean-forward="true" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
+            <state relative-caret-position="136">
+              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding>
-                <element signature="e#1783#1791#0" expanded="true" />
-                <element signature="e#2821#2832#0" expanded="true" />
+                <element signature="e#1604#1612#0" expanded="true" />
+                <element signature="e#2656#2667#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -159,8 +151,8 @@
         <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/entidades/Firma.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/CertificateValidation.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/entidades/Documento.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/JsonService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/JsonService.java" />
       </list>
     </option>
   </component>
@@ -1033,7 +1025,7 @@
       <workItem from="1506963954256" duration="159000" />
       <workItem from="1506966135637" duration="9134000" />
       <workItem from="1507043310060" duration="10000" />
-      <workItem from="1507048177625" duration="34584000" />
+      <workItem from="1507048177625" duration="38609000" />
     </task>
     <task id="LOCAL-00001" summary="Prueba desde intellij">
       <created>1505824104122</created>
@@ -1067,7 +1059,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107176000" />
+    <option name="totallyTimeSpent" value="111201000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -1154,7 +1146,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java</url>
-          <line>80</line>
+          <line>81</line>
           <properties />
           <option name="timeStamp" value="27" />
         </line-breakpoint>
@@ -1582,20 +1574,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/CertificateValidation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="205" column="25" lean-forward="true" selection-start-line="205" selection-start-column="25" selection-end-line="205" selection-end-column="25" />
-          <folding>
-            <element signature="e#2985#3000#0" expanded="true" />
-            <element signature="e#3289#3298#0" expanded="true" />
-            <element signature="e#5186#5187#0" expanded="true" />
-            <element signature="e#5205#5206#0" expanded="true" />
-            <element signature="e#7478#7485#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/config/Propiedades.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1604,13 +1582,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/CertificateValidation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1581">
+          <caret line="193" column="14" lean-forward="true" selection-start-line="193" selection-start-column="14" selection-end-line="193" selection-end-column="14" />
+          <folding>
+            <element signature="e#2985#3000#0" expanded="true" />
+            <element signature="e#3289#3298#0" expanded="true" />
+            <element signature="e#7478#7485#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="43" column="45" lean-forward="true" selection-start-line="43" selection-start-column="45" selection-end-line="43" selection-end-column="45" />
+        <state relative-caret-position="136">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
-            <element signature="e#1783#1791#0" expanded="true" />
-            <element signature="e#2821#2832#0" expanded="true" />
+            <element signature="e#1604#1612#0" expanded="true" />
+            <element signature="e#2656#2667#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1618,10 +1608,10 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/JsonService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="178">
-          <caret line="77" column="38" lean-forward="true" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
+          <caret line="62" column="49" lean-forward="true" selection-start-line="62" selection-start-column="49" selection-end-line="62" selection-end-column="49" />
           <folding>
-            <element signature="e#2389#2397#0" expanded="true" />
-            <element signature="e#3461#3472#0" expanded="true" />
+            <element signature="e#2167#2175#0" expanded="true" />
+            <element signature="e#3169#3180#0" expanded="true" />
           </folding>
         </state>
       </provider>

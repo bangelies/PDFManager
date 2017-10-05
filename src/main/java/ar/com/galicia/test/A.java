@@ -34,30 +34,31 @@ public class A {
         ObjectMapper mapper = new ObjectMapper();
         String uuid = UUID.randomUUID().toString();
 
-        String pdfPadre= Propiedades.pdfExtractor+"tmpPadre_"+uuid+".pdf";
+        //String pdfPadre= Propiedades.pdfExtractor+"tmpPadre_"+uuid+".pdf";
+        String pdfPadre= "E:/SAS/PDFs/Estatuto Waykap SAS - Como adjunto certificado por IGJ.pdf";
         String pdfHijo=Propiedades.pdfExtractor+"tmpHijo_"+uuid+".pdf";
         boolean tieneAdjuntos = false;
 
         try {
             //PDFBase64 obj = mapper.readValue(req.getParameter("base64"), PDFBase64.class);
 
-            //Verifico que exista el estatuto
-            System.out.println("Verifico que exista adjuntos. . .");
-            FileUtils.writeByteArrayToFile(new File(pdfPadre), decode(leerArchivo()));
-            ExtractEmbeddedFiles eef = new ExtractEmbeddedFiles(pdfHijo);
-            tieneAdjuntos = eef.extraerAdjuntos(pdfPadre);
+            //FileUtils.writeByteArrayToFile(new File(pdfPadre), decode(leerArchivo()));
+
 
 
             List<Documento> resultadoDelAnalisis=null;
-            if (tieneAdjuntos){
-                List<String> documentosParaAnalizar = new ArrayList<String>();
-                documentosParaAnalizar.add(pdfPadre);
-                documentosParaAnalizar.add(pdfHijo);
-                resultadoDelAnalisis = verifcarDocumentos(documentosParaAnalizar);
 
-            }else{
-                System.out.println("No hay adjuntos, ni me molesto en continuar.");
-            }
+            List<String> documentosParaAnalizar = new ArrayList<String>();
+            documentosParaAnalizar.add(pdfPadre);
+            ExtractEmbeddedFiles eef = new ExtractEmbeddedFiles(pdfHijo);
+
+            if(eef.extraerAdjuntos(pdfPadre)){
+                documentosParaAnalizar.add(pdfHijo);
+             }
+
+
+            resultadoDelAnalisis = verifcarDocumentos(documentosParaAnalizar);
+
 
 
             //Object to JSON in String

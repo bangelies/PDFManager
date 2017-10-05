@@ -45,7 +45,6 @@ public class JsonService extends HttpServlet {
 
 
         ObjectMapper mapper = new ObjectMapper();
-        boolean tieneAdjuntos = false;
         String uuid = UUID.randomUUID().toString();
 
         String pdfPadre= Propiedades.pdfExtractor+"tmpPadre_"+uuid+".pdf";
@@ -53,26 +52,20 @@ public class JsonService extends HttpServlet {
 
         try {
             PDFBase64 obj = mapper.readValue(req.getParameter("base64"), PDFBase64.class);
+            //String certificado = req.getParameter("certificado");
             FileUtils.writeByteArrayToFile(new File(pdfPadre), decode(obj.getBase64()));
 
 
-            //Verifico que exista el estatuto
-            System.out.println("Verifico que exista adjuntos. . .");
-            ExtractEmbeddedFiles eef = new ExtractEmbeddedFiles(pdfHijo);
-            tieneAdjuntos = eef.extraerAdjuntos(pdfPadre);
-
-
+            //Verifico las firmas
             List<Documento> resultadoDelAnalisis=null;
-            if (tieneAdjuntos){
-                List<String> documentosParaAnalizar = new ArrayList<String>();
-                documentosParaAnalizar.add(pdfPadre);
+
+            List<String> documentosParaAnalizar = new ArrayList<String>();
+            documentosParaAnalizar.add(pdfPadre);
+            ExtractEmbeddedFiles eef = new ExtractEmbeddedFiles(pdfHijo);
+
+            if(eef.extraerAdjuntos(pdfPadre)){
                 documentosParaAnalizar.add(pdfHijo);
-                resultadoDelAnalisis = verifcarDocumentos(documentosParaAnalizar);
-
-            }else{
-                System.out.println("No hay adjuntos, ni me molesto en continuar.");
             }
-
 
 
             //Object to JSON in String
