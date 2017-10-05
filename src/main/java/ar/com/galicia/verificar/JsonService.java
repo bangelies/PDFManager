@@ -1,6 +1,7 @@
 package ar.com.galicia.verificar;
 
 import ar.com.galicia.config.Propiedades;
+import ar.com.galicia.entidades.Documento;
 import ar.com.galicia.log.Logear;
 import ar.com.galicia.verificar.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -45,8 +46,6 @@ public class JsonService extends HttpServlet {
 
         ObjectMapper mapper = new ObjectMapper();
         boolean tieneAdjuntos = false;
-        boolean isPadreOk=true;
-        boolean isHijoOk=true;
         String uuid = UUID.randomUUID().toString();
 
         String pdfPadre= Propiedades.pdfExtractor+"tmpPadre_"+uuid+".pdf";
@@ -56,51 +55,28 @@ public class JsonService extends HttpServlet {
             PDFBase64 obj = mapper.readValue(req.getParameter("base64"), PDFBase64.class);
             FileUtils.writeByteArrayToFile(new File(pdfPadre), decode(obj.getBase64()));
 
+
             //Verifico que exista el estatuto
-            Logear.logEmpresasSAS_debug("Verifico que exista adjuntos. . .");
+            System.out.println("Verifico que exista adjuntos. . .");
             ExtractEmbeddedFiles eef = new ExtractEmbeddedFiles(pdfHijo);
             tieneAdjuntos = eef.extraerAdjuntos(pdfPadre);
 
+
+            List<Documento> resultadoDelAnalisis=null;
             if (tieneAdjuntos){
-                Logear.logEmpresasSAS_debug("Ok");
-                //Verificar PADRE
-                Logear.logEmpresasSAS_debug("-===< PDF Padre >===-");
-                List<EstadoDocumento> padre = imprimirResultado(pdfPadre);
+                List<String> documentosParaAnalizar = new ArrayList<String>();
+                documentosParaAnalizar.add(pdfPadre);
+                documentosParaAnalizar.add(pdfHijo);
+                resultadoDelAnalisis = verifcarDocumentos(documentosParaAnalizar);
 
-                for (EstadoDocumento estadofirma: padre) {
-                    if(estadofirma.isIntegridad() & estadofirma.isValidez()){
-                        Logear.logEmpresasSAS_debug("PDF Padre = OK");
-                    }else{
-                        Logear.logEmpresasSAS_debug("PDF Padre = NOT OK");
-                        isPadreOk=false;
-                    }
-                }
-                if(isPadreOk){
-                    Logear.logEmpresasSAS_debug("-===< PDF Hijo >===-");
-                    List<EstadoDocumento> hijo = imprimirResultado(pdfHijo);
-
-                    for (EstadoDocumento estadofirma: hijo) {
-                        if(estadofirma.isIntegridad() & estadofirma.isValidez()){
-                            Logear.logEmpresasSAS_debug("PDF Hijo = OK");
-                        }else{
-                            Logear.logEmpresasSAS_debug("PDF Hijo = NOT OK");
-                            isHijoOk=false;
-                        }
-                    }
-                }
             }else{
-                Logear.logEmpresasSAS_debug("No hay adjuntos, ni me molesto en continuar.");
-                isPadreOk=false;
-                isHijoOk=false;
+                System.out.println("No hay adjuntos, ni me molesto en continuar.");
             }
-            Logear.logEmpresasSAS_debug("Estado general Padre: "+isPadreOk);
-            Logear.logEmpresasSAS_debug("Estado general Hijo: "+isHijoOk);
 
 
-            boolean resultadoFinal= isHijoOk & isPadreOk?true:false;
 
             //Object to JSON in String
-            String jsonInString = mapper.writeValueAsString(resultadoFinal);
+            String jsonInString = mapper.writeValueAsString(resultadoDelAnalisis);
             Logear.logEmpresasSAS_debug("Resultado final:"+jsonInString);
 
             Logear.logEmpresasSAS_debug(jsonInString);
@@ -114,26 +90,20 @@ public class JsonService extends HttpServlet {
 
         Logear.logEmpresasSAS_debug("*****************************************************************************************************");
     }
-    private static  List<EstadoDocumento> imprimirResultado(String pdf){
-        List<EstadoDocumento> response= new ArrayList<EstadoDocumento>();
+    private static  List<Documento> verifcarDocumentos(List<String> documentosParaAnalizar){
+
+        List<Documento> documentosAnalizados = new ArrayList<Documento>();
         try {
-            CertificateValidation cv = new CertificateValidation();
-            response = cv.verificarFirmaFilePath(pdf);
-
-
-            for (EstadoDocumento ef : response) {
-                Logear.logEmpresasSAS_debug("---> Nombre firma: " + ef.getNombreFirma());
-                Logear.logEmpresasSAS_debug("---> Integridad: " + ef.isIntegridad());
-                Logear.logEmpresasSAS_debug("---> Validez: " + ef.isValidez());
-                if(ef.isValidez()==false){
-                    Logear.logEmpresasSAS_debug("Firma invalida: "+ef.getFirmaInvalida());
-                }
+            for (String pathDocumento: documentosParaAnalizar) {
+                CertificateValidation cv = new CertificateValidation();
+                documentosAnalizados.add(cv.verificarFirmaFilePath(pathDocumento));
             }
         }catch(Exception e){
-            Logear.logEmpresasSAS_debug("---> El documento no tiene firmas" );
+            System.out.println("---> El documento no tiene firmas" );
         }
-        return response;
+        return documentosAnalizados;
     }
+
     private byte[] decode(String data)
     {
         Encoder encoder = new Base64Encoder();

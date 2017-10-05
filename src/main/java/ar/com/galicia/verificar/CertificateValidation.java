@@ -1,6 +1,8 @@
 package ar.com.galicia.verificar;
 
 import ar.com.galicia.config.Propiedades;
+import ar.com.galicia.entidades.Documento;
+import ar.com.galicia.entidades.Firma;
 import ar.com.galicia.log.Logear;
 import com.itextpdf.text.pdf.AcroFields;
 import com.itextpdf.text.pdf.PdfReader;
@@ -11,6 +13,7 @@ import org.bouncycastle.util.encoders.Base64Encoder;
 import org.bouncycastle.util.encoders.Encoder;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
@@ -33,33 +36,33 @@ public class CertificateValidation {
 
 
 
-	public EstadoDocumento verifySignature(AcroFields fields, String name) throws GeneralSecurityException, IOException {
-		EstadoDocumento ef = new EstadoDocumento();
+	public Firma verifySignature(AcroFields fields, String name) throws GeneralSecurityException, IOException {
+		Firma firma = new Firma();
 
 		conFirmas=true;
 //		PdfPKCS7 pkcs7 = super.verifySignature(fields, name);
 
 		PdfPKCS7 pkcs7 = fields.verifySignature(name);
 		//System.out.println("Integrity check OK? " + pkcs7.verify());
-		ef.setIntegridad(pkcs7.verify());
+		firma.setIntegridad(pkcs7.verify());
 
 		Certificate[] certs = pkcs7.getSignCertificateChain();
 		Calendar cal = pkcs7.getSignDate();
 		List<VerificationException> errors = CertificateVerification.verifyCertificates(certs, ks, cal);
 		if (errors.size() == 0){
 			Logear.logEmpresasSAS_debug("Certificates verified against the KeyStore");
-			ef.setValidez(true);
+			firma.setValidez(true);
 			//System.out.println("Certificates verified against the KeyStore");
 		}
 		else{
 			//System.out.println("No Certificates verified against the KeyStore");
-			ef.setValidez(false);
-			ef.setFirmaInvalida(errors.toString());
+			firma.setValidez(false);
+			//firma.setFirmaInvalida(errors.toString());
 			Logear.logEmpresasSAS_debug(errors.toString());}	//Aca tira el error de firma invalida
 		for (int i = 0; i < certs.length; i++) {
 			X509Certificate cert = (X509Certificate) certs[i];
 			Logear.logEmpresasSAS_debug("=== Certificate " + i + " ===");
-			showCertificateInfo(cert, cal.getTime(),ef);
+			showCertificateInfo(cert, cal.getTime(),firma);
 		}
 		X509Certificate signCert = (X509Certificate)certs[0];
 		X509Certificate issuerCert = (certs.length > 1 ? (X509Certificate)certs[1] : null);
@@ -68,7 +71,7 @@ public class CertificateValidation {
 		Logear.logEmpresasSAS_debug("=== Checking validity of the document today ===");
 		checkRevocation(pkcs7, signCert, issuerCert, new Date());
 
-		return ef;
+		return firma;
 	}
 
 	public void checkRevocation(PdfPKCS7 pkcs7, X509Certificate signCert, X509Certificate issuerCert, Date date) throws GeneralSecurityException, IOException {
@@ -100,10 +103,10 @@ public class CertificateValidation {
 		}
 	}
 
-	public void showCertificateInfo(X509Certificate cert, Date signDate,EstadoDocumento ef) {
+	public void showCertificateInfo(X509Certificate cert, Date signDate,Firma firma) {
 		Logear.logEmpresasSAS_debug("Issuer: " + cert.getIssuerDN());
 		Logear.logEmpresasSAS_debug("Subject: " + cert.getSubjectDN());
-		ef.setNombreFirma(""+cert.getSubjectDN());
+		firma.setNombreFirma(""+cert.getSubjectDN());
 		SimpleDateFormat date_format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SS");
 		Logear.logEmpresasSAS_debug("Valid from: " + date_format.format(cert.getNotBefore()));
 		Logear.logEmpresasSAS_debug("Valid to: " + date_format.format(cert.getNotAfter()));
@@ -164,44 +167,43 @@ public class CertificateValidation {
 //
 //		return listaEstadoFirmas;
 //	}
-	public List<EstadoDocumento> verificarFirmaFilePath(String path) throws IOException,GeneralSecurityException, Exception {
-		Logear.logEmpresasSAS_debug("Inicio verificarFirma *************************");
+	public Documento verificarFirmaFilePath(String path) throws IOException,GeneralSecurityException, Exception {
+		Logear.logEmpresasSAS_debug("************* Inicio analisis del documento *************");
 
-		//LoggerFactory.getInstance().setLogger(new SysoLogger());
+		//Inicializo BouncyCastle para comenzar el analisis
 		BouncyCastleProvider provider = new BouncyCastleProvider();
 		Security.addProvider(provider);
-		//CertificateValidation app = new CertificateValidation();
 		KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
-
 		ks.load(null, null);
 		CertificateFactory cf = CertificateFactory.getInstance("X.509");
 		ks.setCertificateEntry("cacert",cf.generateCertificate(new FileInputStream(Propiedades.path+Propiedades.certificado)));
 		setKeyStore(ks);
 
 
+		//Por cada documento realizo los siguientes pasos para su analisis
+		Documento documento = new Documento();
+		List<Firma> firmas = new ArrayList<Firma>();
 
 		PdfReader reader = new PdfReader(path);
 		AcroFields fields = reader.getAcroFields();
 		ArrayList<String> names = fields.getSignatureNames();
 
-		//Genero la lista de salida con el resultado de las firmas
-		List<EstadoDocumento> listaEstadoFirmas = new ArrayList<EstadoDocumento>();
-
+		documento.setNombrePDF(new File(path).getName());
 		if(names.size()==0){
-			throw new Exception("No tiene firmas");
+			documento.setHayFirmas(false);
+		}else{
+			documento.setHayFirmas(true);
+			for (String name : names) {
+				Logear.logEmpresasSAS_debug("===== " + name + " =====");
+				firmas.add(verifySignature(fields, name));
+			}
 		}
 
-		for (String name : names) {
-			Logear.logEmpresasSAS_debug("===== " + name + " =====");
-			EstadoDocumento ef = verifySignature(fields, name);
-			//ef.setNombreFirma(name);
-			ef.setHayFirmas(conFirmas);
-			listaEstadoFirmas.add(ef);
-		}
+		documento.setFirmas(firmas);
 
-		Logear.logEmpresasSAS_debug("Fin *************************");
+		Logear.logEmpresasSAS_debug("************* Finalizo analisis del documento *************");
 
-		return listaEstadoFirmas;
+		return documento;
 	}
 //	public byte[] decode(String    data)
 //	{
