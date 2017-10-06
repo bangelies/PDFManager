@@ -2,6 +2,7 @@ package ar.com.galicia.verificar;
 
 import ar.com.galicia.config.Propiedades;
 import ar.com.galicia.entidades.Documento;
+import ar.com.galicia.entidades.Firma;
 import ar.com.galicia.log.Logear;
 import ar.com.galicia.verificar.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -45,6 +46,7 @@ public class JsonService extends HttpServlet {
 
 
         ObjectMapper mapper = new ObjectMapper();
+
         String uuid = UUID.randomUUID().toString();
 
         String pdfPadre= Propiedades.pdfExtractor+"tmpPadre_"+uuid+".pdf";
@@ -61,10 +63,25 @@ public class JsonService extends HttpServlet {
 
             List<String> documentosParaAnalizar = new ArrayList<String>();
             documentosParaAnalizar.add(pdfPadre);
-            ExtractEmbeddedFiles eef = new ExtractEmbeddedFiles(pdfHijo);
 
-            if(eef.extraerAdjuntos(pdfPadre)){
-                documentosParaAnalizar.add(pdfHijo);
+            try {
+                ExtractEmbeddedFiles eef = new ExtractEmbeddedFiles(pdfHijo);
+                if(eef.extraerAdjuntos(pdfPadre)){
+                    documentosParaAnalizar.add(pdfHijo);
+                }
+                resultadoDelAnalisis = verifcarDocumentos(documentosParaAnalizar);
+            }catch(Exception e){
+                Documento d = new Documento();
+                d.setHayFirmas(false);
+                d.setNombrePDF(pdfPadre);
+                Firma f = new Firma();
+                f.setIntegridad(false);
+                f.setNombreFirma("");
+                f.setValidez(false);
+                List<Firma> firmas = new ArrayList<Firma>();
+                d.setFirmas(firmas);
+                resultadoDelAnalisis = new ArrayList<Documento>();
+                resultadoDelAnalisis.add(d);
             }
 
 
