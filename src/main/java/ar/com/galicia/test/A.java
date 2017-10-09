@@ -45,8 +45,6 @@ public class A {
 
             //FileUtils.writeByteArrayToFile(new File(pdfPadre), decode(leerArchivo()));
 
-
-
             List<Documento> resultadoDelAnalisis=null;
 
             List<String> documentosParaAnalizar = new ArrayList<String>();
