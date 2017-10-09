@@ -36,7 +36,7 @@ public class A {
         String uuid = UUID.randomUUID().toString();
 
         //String pdfPadre= Propiedades.pdfExtractor+"tmpPadre_"+uuid+".pdf";
-        String pdfPadre= "E:/SAS/PDFs/IF-2017-21779850-APN-DA#IGJ.pdf";
+        String pdfPadre= "E:/SAS/PDFs/Estatuto Waykap SAS - Como adjunto certificado por IGJ.pdf";
         String pdfHijo=Propiedades.pdfExtractor+"tmpHijo_"+uuid+".pdf";
         boolean tieneAdjuntos = false;
 
