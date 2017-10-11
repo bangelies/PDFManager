@@ -34,9 +34,9 @@ public class A {
 
         ObjectMapper mapper = new ObjectMapper();
         String uuid = UUID.randomUUID().toString();
-
+        String jsonInString="";
         //String pdfPadre= Propiedades.pdfExtractor+"tmpPadre_"+uuid+".pdf";
-        String pdfPadre= "E:/SAS/PDFs/Estatuto Waykap SAS - Como adjunto certificado por IGJ.pdf";
+        String pdfPadre="e:/SAS/PDFs/2017091318210004_ActaModelo_firmado.pdf";
         String pdfHijo=Propiedades.pdfExtractor+"tmpHijo_"+uuid+".pdf";
         boolean tieneAdjuntos = false;
 
@@ -53,21 +53,15 @@ public class A {
             try {
                 ExtractEmbeddedFiles eef = new ExtractEmbeddedFiles(pdfHijo);
                 if(eef.extraerAdjuntos(pdfPadre)){
+
                     documentosParaAnalizar.add(pdfHijo);
                 }
                 resultadoDelAnalisis = verifcarDocumentos(documentosParaAnalizar);
+                //Object to JSON in String
+                jsonInString = mapper.writeValueAsString(resultadoDelAnalisis);
             }catch(Exception e){
-                Documento d = new Documento();
-                d.setHayFirmas(false);
-                d.setNombrePDF(pdfPadre);
-                Firma f = new Firma();
-                f.setIntegridad(false);
-                f.setNombreFirma("");
-                f.setValidez(false);
-                List<Firma> firmas = new ArrayList<Firma>();
-                d.setFirmas(firmas);
-                resultadoDelAnalisis = new ArrayList<Documento>();
-                resultadoDelAnalisis.add(d);
+                Logear.logEmpresasSAS_error("Documento no valido");
+                jsonInString="Documento no valido";
             }
 
 
@@ -77,8 +71,7 @@ public class A {
 
 
 
-            //Object to JSON in String
-            String jsonInString = mapper.writeValueAsString(resultadoDelAnalisis);
+
             System.out.println("Resultado final:"+jsonInString);
             //resp.getWriter().write("ar.com.galicia.verificar.JsonService POST " + jsonInString);
 

@@ -14,7 +14,7 @@ import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.security.PdfPKCS7;
  
 public class C5_01_SignatureIntegrity {
-    public static final String EXAMPLE1 = "e:/SAS/PDFs/tmpHijo_2017100314070013_StarGate.pdf";
+    public static final String EXAMPLE1 = "e:/SAS/PDFs/Estatuto Waykap SAS - Como adjunto certificado por IGJ.pdf";
 
 	public PdfPKCS7 verifySignature(AcroFields fields, String name) throws GeneralSecurityException, IOException {
 		System.out.println("Signature covers whole document: " + fields.signatureCoversWholeDocument(name));

@@ -48,7 +48,7 @@ public class JsonService extends HttpServlet {
         ObjectMapper mapper = new ObjectMapper();
 
         String uuid = UUID.randomUUID().toString();
-
+        String jsonInString="";
         String pdfPadre= Propiedades.pdfExtractor+"tmpPadre_"+uuid+".pdf";
         String pdfHijo=Propiedades.pdfExtractor+"tmpHijo_"+uuid+".pdf";
 
@@ -70,23 +70,14 @@ public class JsonService extends HttpServlet {
                     documentosParaAnalizar.add(pdfHijo);
                 }
                 resultadoDelAnalisis = verifcarDocumentos(documentosParaAnalizar);
+                //Object to JSON in String
+                jsonInString = mapper.writeValueAsString(resultadoDelAnalisis);
             }catch(Exception e){
-                Documento d = new Documento();
-                d.setHayFirmas(false);
-                d.setNombrePDF(pdfPadre);
-                Firma f = new Firma();
-                f.setIntegridad(false);
-                f.setNombreFirma("");
-                f.setValidez(false);
-                List<Firma> firmas = new ArrayList<Firma>();
-                d.setFirmas(firmas);
-                resultadoDelAnalisis = new ArrayList<Documento>();
-                resultadoDelAnalisis.add(d);
+                Logear.logEmpresasSAS_error("Documento no valido");
+                jsonInString="Documento no valido";
             }
 
 
-            //Object to JSON in String
-            String jsonInString = mapper.writeValueAsString(resultadoDelAnalisis);
             Logear.logEmpresasSAS_debug("Resultado final:"+jsonInString);
 
             Logear.logEmpresasSAS_debug(jsonInString);

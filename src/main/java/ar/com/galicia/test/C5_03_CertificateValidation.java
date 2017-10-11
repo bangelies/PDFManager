@@ -32,11 +32,11 @@ import com.itextpdf.text.pdf.security.VerificationException;
 import com.itextpdf.text.pdf.security.VerificationOK;
  
 public class C5_03_CertificateValidation extends C5_01_SignatureIntegrity {
-    public static final String ADOBE = "e:/ibm/bpmLogs/ACRaiz.cer";
-	public static final String CACERT = "src/main/resources/CACertSigningAuthority.crt";
+    public static final String ADOBE = "e:/SAS/llaves oficiales/Autoridad Certificante de Firma Digital.cer";
+//	public static final String CACERT = "src/main/resources/CACertSigningAuthority.crt";
 //	public static final String BRUNO = "src/main/resources/bruno.crt";
  
-	public static final String EXAMPLE1 ="e:/SAS/PDFs/tmpHijo_2017100314070013_StarGate.pdf";
+	public static final String EXAMPLE1 ="e:/SAS/PDFs/2017091318210004_ActaModelo_firmado.pdf";
 
  
 	KeyStore ks;
@@ -70,23 +70,31 @@ public class C5_03_CertificateValidation extends C5_01_SignatureIntegrity {
 		if (pkcs7.getOcsp() != null)
 			ocsps.add(pkcs7.getOcsp());
 		OCSPVerifier ocspVerifier = new OCSPVerifier(null, ocsps);
+		System.out.println("1");
 		List<VerificationOK> verification =
 			ocspVerifier.verify(signCert, issuerCert, date);
 		if (verification.size() == 0) {
 			List<X509CRL> crls = new ArrayList<X509CRL>();
+			System.out.println("2");
 			if (pkcs7.getCRLs() != null) {
-				for (CRL crl : pkcs7.getCRLs())
-					crls.add((X509CRL)crl);
+				for (CRL crl : pkcs7.getCRLs()){
+					System.out.println("3");
+					crls.add((X509CRL)crl);}
 			}
 			CRLVerifier crlVerifier = new CRLVerifier(null, crls);
+			System.out.println("32222");
 			verification.addAll(crlVerifier.verify(signCert, issuerCert, date));
+			System.out.println("111111111");
 		}
 		if (verification.size() == 0) {
 			System.out.println("The signing certificate couldn't be verified");
 		}
 		else {
-			for (VerificationOK v : verification)
+			for (VerificationOK v : verification){
+				System.out.println("4");
 				System.out.println(v);
+			}
+
 		}
 	}
  
@@ -133,8 +141,8 @@ public class C5_03_CertificateValidation extends C5_01_SignatureIntegrity {
 		CertificateFactory cf = CertificateFactory.getInstance("X.509");
 		ks.setCertificateEntry("adobe",
 				cf.generateCertificate(new FileInputStream(ADOBE)));
-		ks.setCertificateEntry("cacert",
-				cf.generateCertificate(new FileInputStream(CACERT)));
+//		ks.setCertificateEntry("cacert",
+//				cf.generateCertificate(new FileInputStream(CACERT)));
 //		ks.setCertificateEntry("bruno",
 //				cf.generateCertificate(new FileInputStream(BRUNO)));
 		app.setKeyStore(ks);
