@@ -49,8 +49,8 @@ public class JsonService extends HttpServlet {
 
         String uuid = UUID.randomUUID().toString();
         String jsonInString="";
-        String pdfPadre= Propiedades.pdfExtractor+"tmpPadre_"+uuid+".pdf";
-        String pdfHijo=Propiedades.pdfExtractor+"tmpHijo_"+uuid+".pdf";
+        String pdfPadre= Propiedades.pdfExtractor+"tmpPlancheta_"+uuid+".pdf";
+        String pdfHijo=Propiedades.pdfExtractor+"tmpEstatuto_"+uuid+".pdf";
 
         try {
             PDFBase64 obj = mapper.readValue(req.getParameter("base64"), PDFBase64.class);
