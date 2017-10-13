@@ -35,15 +35,15 @@ public class A {
         ObjectMapper mapper = new ObjectMapper();
         String uuid = UUID.randomUUID().toString();
         String jsonInString="";
-        //String pdfPadre= Propiedades.pdfExtractor+"tmpPadre_"+uuid+".pdf";
-        String pdfPadre="e:/SAS/PDFs/2017091318210004_ActaModelo_firmado.pdf";
-        String pdfHijo=Propiedades.pdfExtractor+"tmpHijo_"+uuid+".pdf";
+        String pdfPadre= Propiedades.path+"tmpPadre_"+uuid+".pdf";
+       // String pdfPadre="e:/SAS/PDFs/Plancheta.pdf";
+        String pdfHijo=Propiedades.path+"tmpHijo_"+uuid+".pdf";
         boolean tieneAdjuntos = false;
 
         try {
             //PDFBase64 obj = mapper.readValue(req.getParameter("base64"), PDFBase64.class);
 
-            //FileUtils.writeByteArrayToFile(new File(pdfPadre), decode(leerArchivo()));
+            FileUtils.writeByteArrayToFile(new File(pdfPadre), decode(leerArchivo()));
 
             List<Documento> resultadoDelAnalisis=null;
 
@@ -106,7 +106,7 @@ public class A {
         try {
 
             //br = new BufferedReader(new FileReader(FILENAME));
-            fr = new FileReader("E:\\SAS\\PDFs\\2017091514140055_BPM855-CaseManagement.txt");
+            fr = new FileReader("E:\\SAS\\PDFs\\Estatuto Waykap SAS - Como adjunto certificado por IGJ.txt");
             br = new BufferedReader(fr);
 
             String sCurrentLine;

@@ -7,6 +7,7 @@ import ar.com.galicia.log.Logear;
 import ar.com.galicia.verificar.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.bouncycastle.util.encoders.Base64Encoder;
 import org.bouncycastle.util.encoders.Encoder;
 
@@ -45,17 +46,23 @@ public class JsonService extends HttpServlet {
         //String base64 = leerArchivo();
 
 
+
+
+
         ObjectMapper mapper = new ObjectMapper();
 
         String uuid = UUID.randomUUID().toString();
         String jsonInString="";
-        String pdfPadre= Propiedades.pdfExtractor+"tmpPlancheta_"+uuid+".pdf";
-        String pdfHijo=Propiedades.pdfExtractor+"tmpEstatuto_"+uuid+".pdf";
+        String pdfPadre= Propiedades.path+"tmpPlancheta_"+uuid+".pdf";
+        String pdfHijo=Propiedades.path+"tmpEstatuto_"+uuid+".pdf";
+
+        String base64=IOUtils.toString(req.getReader());
+        Logear.logEmpresasSAS_debug(base64);
 
         try {
-            PDFBase64 obj = mapper.readValue(req.getParameter("base64"), PDFBase64.class);
+            //PDFBase64 obj = mapper.readValue(req.getParameter("base64"), PDFBase64.class);
             //String certificado = req.getParameter("certificado");
-            FileUtils.writeByteArrayToFile(new File(pdfPadre), decode(obj.getBase64()));
+            FileUtils.writeByteArrayToFile(new File(pdfPadre), decode(base64));
 
 
             //Verifico las firmas
