@@ -30,20 +30,20 @@ public class A {
 
 
         System.out.println("*****************************************************************************************************");
-        String base64 = leerArchivo();
+        //String base64 = leerArchivo();
 
         ObjectMapper mapper = new ObjectMapper();
         String uuid = UUID.randomUUID().toString();
         String jsonInString="";
-        String pdfPadre= Propiedades.path+"tmpPadre_"+uuid+".pdf";
-       // String pdfPadre="e:/SAS/PDFs/Plancheta.pdf";
-        String pdfHijo=Propiedades.path+"tmpHijo_"+uuid+".pdf";
+        //String pdfPadre= Propiedades.pathPDF+"tmpPadre_"+uuid+".pdf";
+       String pdfPadre="e:/SAS/PDFs/IF-2017-22972505-APN-DA#IGJ.pdf";
+        String pdfHijo=Propiedades.pathPDF+"tmpHijo_"+uuid+".pdf";
         boolean tieneAdjuntos = false;
 
         try {
             //PDFBase64 obj = mapper.readValue(req.getParameter("base64"), PDFBase64.class);
 
-            FileUtils.writeByteArrayToFile(new File(pdfPadre), decode(leerArchivo()));
+           // FileUtils.writeByteArrayToFile(new File(pdfPadre), decode(leerArchivo()));
 
             List<Documento> resultadoDelAnalisis=null;
 

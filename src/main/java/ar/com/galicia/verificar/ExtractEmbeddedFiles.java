@@ -117,6 +117,7 @@ public final class ExtractEmbeddedFiles
         for (Entry<String, PDComplexFileSpecification> entry : names.entrySet())
         {
             String filename = entry.getKey();
+            System.out.println(filename);
             PDComplexFileSpecification fileSpec = entry.getValue();
             PDEmbeddedFile embeddedFile = getEmbeddedFile(fileSpec);
             extractFile(filePath, filename, embeddedFile);
@@ -126,10 +127,8 @@ public final class ExtractEmbeddedFiles
     private void extractFile(String filePath, String filename, PDEmbeddedFile embeddedFile)
             throws IOException
     {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssss");
-        String date = sdf.format(new Date());
+
         String embeddedFilename = filePath + filename;
-        //File file = new File(filePath + filename+date+".pdf");
 
         File file = new File(pdfHijo);
         System.out.println("Writing " + embeddedFilename);
@@ -169,11 +168,5 @@ public final class ExtractEmbeddedFiles
         return embeddedFile;
     }
 
-    /**
-     * This will print the usage for this program.
-     */
-    private static void usage()
-    {
-        System.err.println( "Usage: java " + ExtractEmbeddedFiles.class.getName() + " <input-pdf>" );
-    }
+
 }

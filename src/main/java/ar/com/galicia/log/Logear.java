@@ -1,5 +1,6 @@
 package ar.com.galicia.log;
 
+import ar.com.galicia.config.Propiedades;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
@@ -12,7 +13,6 @@ import java.util.Properties;
 public class Logear {
 
 
-    private static String propertiesPath = "/ibm/bpmLogs/config/log4j.properties";//Para los servidores
     private static Properties p = new Properties();
     private static Logger loggerEmpresasSAS = Logger.getLogger("loggerEmpresasSAS");
     private static boolean isConfigured = true;
@@ -21,7 +21,7 @@ public class Logear {
     private static void configurarLogger(){
         if(isConfigured){
             try{
-                p.load(new FileInputStream(propertiesPath));
+                p.load(new FileInputStream(Propiedades.propertiesPath));
                 PropertyConfigurator.configure(p);
                 isConfigured=false;
             }catch (Exception e){

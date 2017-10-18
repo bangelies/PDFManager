@@ -53,15 +53,14 @@ public class JsonService extends HttpServlet {
 
         String uuid = UUID.randomUUID().toString();
         String jsonInString="";
-        String pdfPadre= Propiedades.path+"tmpPlancheta_"+uuid+".pdf";
-        String pdfHijo=Propiedades.path+"tmpEstatuto_"+uuid+".pdf";
+        String pdfPadre= Propiedades.pathPDF+"tmpPlancheta_"+uuid+".pdf";
+        String pdfHijo=Propiedades.pathPDF+"tmpEstatuto_"+uuid+".pdf";
 
         String base64=IOUtils.toString(req.getReader());
         Logear.logEmpresasSAS_debug(base64);
 
         try {
-            //PDFBase64 obj = mapper.readValue(req.getParameter("base64"), PDFBase64.class);
-            //String certificado = req.getParameter("certificado");
+
             FileUtils.writeByteArrayToFile(new File(pdfPadre), decode(base64));
 
 
