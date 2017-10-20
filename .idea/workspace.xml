@@ -19,21 +19,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/log/Logear.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/log/Logear.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/test/A.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/test/A.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/CertificateValidation.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/CertificateValidation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/ExtractEmbeddedFiles.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/ExtractEmbeddedFiles.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/JsonService.class" afterPath="$PROJECT_DIR$/target/PDFManager/WEB-INF/classes/ar/com/galicia/verificar/JsonService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/config/Propiedades.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/config/Propiedades.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/log/Logear.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/log/Logear.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/test/A.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/test/A.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/CertificateValidation.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/CertificateValidation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/ExtractEmbeddedFiles.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/ExtractEmbeddedFiles.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/JsonService.class" afterPath="$PROJECT_DIR$/target/classes/ar/com/galicia/verificar/JsonService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ar/com/galicia/config/Propiedades.java" afterPath="$PROJECT_DIR$/src/main/java/ar/com/galicia/config/Propiedades.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ar/com/galicia/log/Logear.java" afterPath="$PROJECT_DIR$/src/main/java/ar/com/galicia/log/Logear.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java" afterPath="$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/CertificateValidation.java" afterPath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/CertificateValidation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/ExtractEmbeddedFiles.java" afterPath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/ExtractEmbeddedFiles.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/JsonService.java" afterPath="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/JsonService.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -69,8 +61,8 @@
       <file leaf-file-name="JsonService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/JsonService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="99" column="92" lean-forward="false" selection-start-line="99" selection-start-column="92" selection-end-line="99" selection-end-column="92" />
+            <state relative-caret-position="780">
+              <caret line="79" column="28" lean-forward="false" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -79,20 +71,18 @@
       <file leaf-file-name="A.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="40" column="25" lean-forward="true" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
-              <folding>
-                <element signature="e#1633#1641#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="170">
+              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="Propiedades.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/config/Propiedades.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="84" column="1" lean-forward="false" selection-start-line="84" selection-start-column="1" selection-end-line="101" selection-end-column="12" />
+            <state relative-caret-position="204">
+              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -178,8 +168,8 @@
         <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/log/Logear.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/CertificateValidation.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/JsonService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/config/Propiedades.java" />
         <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ar/com/galicia/config/Propiedades.java" />
       </list>
     </option>
   </component>
@@ -226,8 +216,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1066" />
+    <option name="width" value="1456" />
+    <option name="height" value="886" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -247,6 +237,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -429,8 +420,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Scratches">
         <subPane>
           <PATH>
@@ -471,6 +460,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1133,6 +1123,8 @@
       <workItem from="1507048177625" duration="58413000" />
       <workItem from="1507552332460" duration="58386000" />
       <workItem from="1508335124803" duration="1559000" />
+      <workItem from="1508355807679" duration="2244000" />
+      <workItem from="1508421447487" duration="2870000" />
     </task>
     <task id="LOCAL-00001" summary="Prueba desde intellij">
       <created>1505824104122</created>
@@ -1166,7 +1158,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="190950000" />
+    <option name="totallyTimeSpent" value="196064000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1178,7 +1170,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="-8" y="-8" width="1456" height="886" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1202,10 +1194,10 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4340836" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13965885" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19197708" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1261,15 +1253,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java</url>
-          <line>49</line>
-          <properties />
-          <option name="timeStamp" value="31" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="33" />
+      <option name="time" value="34" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1592,7 +1576,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1601,10 +1584,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-          <folding>
-            <element signature="e#602#603#0" expanded="false" />
-            <element signature="e#634#635#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1638,14 +1617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/JsonService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="99" column="92" lean-forward="false" selection-start-line="99" selection-start-column="92" selection-end-line="99" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/CertificateValidation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -1654,28 +1625,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/config/Propiedades.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="61" lean-forward="false" selection-start-line="8" selection-start-column="61" selection-end-line="8" selection-end-column="61" />
+        <state relative-caret-position="440">
+          <caret line="84" column="1" lean-forward="false" selection-start-line="84" selection-start-column="1" selection-end-line="101" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/test/A.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="40" column="25" lean-forward="true" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="25" />
-          <folding>
-            <element signature="e#1633#1641#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="170">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/verificar/JsonService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="84" column="1" lean-forward="false" selection-start-line="84" selection-start-column="1" selection-end-line="101" selection-end-column="12" />
+        <state relative-caret-position="780">
+          <caret line="79" column="28" lean-forward="false" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ar/com/galicia/config/Propiedades.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>

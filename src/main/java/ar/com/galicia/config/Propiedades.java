@@ -9,3 +9,4 @@ public class Propiedades {
     public static final String pathCertificado="/ibm/bpmLogs/Autoridad Certificante de Firma Digital.cer";
     public static final String propertiesPath = "/ibm/bpmLogs/config/log4j.properties";
 }
+

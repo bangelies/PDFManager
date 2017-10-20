@@ -36,7 +36,7 @@ public class A {
         String uuid = UUID.randomUUID().toString();
         String jsonInString="";
         //String pdfPadre= Propiedades.pathPDF+"tmpPadre_"+uuid+".pdf";
-       String pdfPadre="e:/SAS/PDFs/IF-2017-22972505-APN-DA#IGJ.pdf";
+       String pdfPadre="e:/SAS/PDFs/planch_IF-2017-21171249-APN-DA#IGJ.pdf";
         String pdfHijo=Propiedades.pathPDF+"tmpHijo_"+uuid+".pdf";
         boolean tieneAdjuntos = false;
 
