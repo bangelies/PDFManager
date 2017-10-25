@@ -48,7 +48,6 @@ public class JsonService extends HttpServlet {
 
 
 
-
         ObjectMapper mapper = new ObjectMapper();
 
         String uuid = UUID.randomUUID().toString();

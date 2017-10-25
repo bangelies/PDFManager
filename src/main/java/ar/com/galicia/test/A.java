@@ -35,15 +35,15 @@ public class A {
         ObjectMapper mapper = new ObjectMapper();
         String uuid = UUID.randomUUID().toString();
         String jsonInString="";
-        //String pdfPadre= Propiedades.pathPDF+"tmpPadre_"+uuid+".pdf";
-       String pdfPadre="e:/SAS/PDFs/planch_IF-2017-21171249-APN-DA#IGJ.pdf";
+        String pdfPadre= Propiedades.pathPDF+"tmpPadre_"+uuid+".pdf";
+      // String pdfPadre="e:/SAS/PDFs/Estatuto Waykap SAS - Como adjunto certificado por IGJ.pdf";
         String pdfHijo=Propiedades.pathPDF+"tmpHijo_"+uuid+".pdf";
         boolean tieneAdjuntos = false;
 
         try {
-            //PDFBase64 obj = mapper.readValue(req.getParameter("base64"), PDFBase64.class);
 
-           // FileUtils.writeByteArrayToFile(new File(pdfPadre), decode(leerArchivo()));
+
+            FileUtils.writeByteArrayToFile(new File(pdfPadre), decode(leerArchivo()));
 
             List<Documento> resultadoDelAnalisis=null;
 
@@ -63,11 +63,6 @@ public class A {
                 Logear.logEmpresasSAS_error("Documento no valido");
                 jsonInString="Documento no valido";
             }
-
-
-
-
-
 
 
 
@@ -106,7 +101,7 @@ public class A {
         try {
 
             //br = new BufferedReader(new FileReader(FILENAME));
-            fr = new FileReader("E:\\SAS\\PDFs\\Estatuto Waykap SAS - Como adjunto certificado por IGJ.txt");
+            fr = new FileReader("E:\\SAS\\PDFs\\IF-2017-20791148-APN-DA#IGJ (notificación 18 sept).txt");
             br = new BufferedReader(fr);
 
             String sCurrentLine;
@@ -115,25 +110,11 @@ public class A {
                 sb.append(sCurrentLine);
             }
 
+            br.close();
+            fr.close();
         } catch (IOException e) {
 
             e.printStackTrace();
-
-        } finally {
-
-            try {
-
-                if (br != null)
-                    br.close();
-
-                if (fr != null)
-                    fr.close();
-
-            } catch (IOException ex) {
-
-                ex.printStackTrace();
-
-            }
 
         }
         return sb.toString();
