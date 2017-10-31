@@ -52,8 +52,8 @@ public class JsonService extends HttpServlet {
 
         String uuid = UUID.randomUUID().toString();
         String jsonInString="";
-        String pdfPadre= Propiedades.pathPDF+"tmpPlancheta_"+uuid+".pdf";
-        String pdfHijo=Propiedades.pathPDF+"tmpEstatuto_"+uuid+".pdf";
+        String pdfPadre= Propiedades.getPropiedadesValor("docPath")+"tmpPlancheta_"+uuid+".pdf";
+        String pdfHijo=Propiedades.getPropiedadesValor("docPath")+"tmpEstatuto_"+uuid+".pdf";
 
         String base64=IOUtils.toString(req.getReader());
         Logear.logEmpresasSAS_debug(base64);
@@ -86,6 +86,8 @@ public class JsonService extends HttpServlet {
             Logear.logEmpresasSAS_debug("Resultado final:"+jsonInString);
 
             Logear.logEmpresasSAS_debug(jsonInString);
+
+            resp.setContentType("application/json;charset=UTF-8");
             resp.getWriter().write(jsonInString);
 
         } catch (Exception e) {

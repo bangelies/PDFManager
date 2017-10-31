@@ -1,12 +1,24 @@
 package ar.com.galicia.config;
 
-/**
- * Created by l0633615 on 02/10/2017.
- */
+
+import java.io.FileInputStream;
+import java.util.Properties;
+
+
 public class Propiedades {
+    private static Properties prop = new Properties();
 
-    public static final String pathPDF="/ibm/bpmLogs/";
-    public static final String pathCertificado="/ibm/bpmLogs/Autoridad Certificante de Firma Digital.cer";
-    public static final String propertiesPath = "/ibm/bpmLogs/config/log4j.properties";
+    private static String propertiesPath ="/was/JavaAppsConfig/coe/config/config.properties"; //Para los servidores
+
+    public static String getPropiedadesValor(String key) {
+
+        try {
+            prop.load(new FileInputStream(propertiesPath));
+        } catch (Exception e) {
+            System.out.println("Error: getPropiedadesValor");
+        }
+        return prop.getProperty(key);
+    }
+
+
 }
-

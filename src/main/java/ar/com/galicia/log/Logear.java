@@ -21,7 +21,7 @@ public class Logear {
     private static void configurarLogger(){
         if(isConfigured){
             try{
-                p.load(new FileInputStream(Propiedades.propertiesPath));
+                p.load(new FileInputStream(Propiedades.getPropiedadesValor("logj4")));
                 PropertyConfigurator.configure(p);
                 isConfigured=false;
             }catch (Exception e){

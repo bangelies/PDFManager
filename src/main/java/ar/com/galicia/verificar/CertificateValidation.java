@@ -175,7 +175,7 @@ public class CertificateValidation {
 		KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
 		ks.load(null, null);
 		CertificateFactory cf = CertificateFactory.getInstance("X.509");
-		ks.setCertificateEntry("cacert",cf.generateCertificate(new FileInputStream(Propiedades.pathCertificado)));
+		ks.setCertificateEntry("cacert",cf.generateCertificate(new FileInputStream(Propiedades.getPropiedadesValor("cer"))));
 		setKeyStore(ks);
 
 
