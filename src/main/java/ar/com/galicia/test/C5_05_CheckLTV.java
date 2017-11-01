@@ -3,6 +3,7 @@ package ar.com.galicia.test;
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 import java.security.Security;
+import java.security.cert.X509Certificate;
 import java.util.ArrayList;
  
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
@@ -11,16 +12,23 @@ import com.itextpdf.text.log.LoggerFactory;
 import com.itextpdf.text.log.SysoLogger;
 import com.itextpdf.text.pdf.AcroFields;
 import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.security.CertificateInfo;
 import com.itextpdf.text.pdf.security.PdfPKCS7;
  
-public class C5_01_SignatureIntegrity {
-    public static final String EXAMPLE1 =  "e:\\was\\JavaAppsConfig\\coe\\documentos\\tmpHijo_2dec2a74-c2d5-4318-8fe9-0646b0130a0f.pdf";
+public class C5_05_CheckLTV {
+    public static final String EXAMPLE1 =  "e:\\was\\JavaAppsConfig\\coe\\documentos\\tmpHijo_2dec2a74-c2d5-4318-8fe9-0646b0130a0f.pdf";;
 
+ 
 	public PdfPKCS7 verifySignature(AcroFields fields, String name) throws GeneralSecurityException, IOException {
 		System.out.println("Signature covers whole document: " + fields.signatureCoversWholeDocument(name));
 		System.out.println("Document revision: " + fields.getRevision(name) + " of " + fields.getTotalRevisions());
         PdfPKCS7 pkcs7 = fields.verifySignature(name);
         System.out.println("Integrity check OK? " + pkcs7.verify());
+		System.out.println("Digest algorithm: " + pkcs7.getHashAlgorithm());
+		System.out.println("Encryption algorithm: " + pkcs7.getEncryptionAlgorithm());
+		System.out.println("Filter subtype: " + pkcs7.getFilterSubtype());
+		X509Certificate cert = (X509Certificate) pkcs7.getSigningCertificate();
+		System.out.println("Name of the signer: " + CertificateInfo.getSubjectFields(cert).getField("CN"));
         return pkcs7;
 	}
  
@@ -40,7 +48,8 @@ public class C5_01_SignatureIntegrity {
 		LoggerFactory.getInstance().setLogger(new SysoLogger());
 		BouncyCastleProvider provider = new BouncyCastleProvider();
 		Security.addProvider(provider);
-		C5_01_SignatureIntegrity app = new C5_01_SignatureIntegrity();
+		C5_05_CheckLTV app = new C5_05_CheckLTV();
 		app.verifySignatures(EXAMPLE1);
+
 	}
 }
