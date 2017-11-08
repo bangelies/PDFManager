@@ -101,7 +101,7 @@ public class A {
         try {
 
             //br = new BufferedReader(new FileReader(FILENAME));
-            fr = new FileReader("E:\\SAS\\PDFs\\IF-2017-20791148-APN-DA#IGJ (notificación 18 sept).txt");
+            fr = new FileReader("E:\\SAS\\PDFs\\Estatuto Waykap SAS - Como adjunto certificado por IGJ.txt");
             br = new BufferedReader(fr);
 
             String sCurrentLine;
