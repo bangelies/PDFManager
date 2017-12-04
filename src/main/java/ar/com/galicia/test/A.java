@@ -35,15 +35,15 @@ public class A {
         ObjectMapper mapper = new ObjectMapper();
         String uuid = UUID.randomUUID().toString();
         String jsonInString="";
-        String pdfPadre= Propiedades.getPropiedadesValor("docPath")+"tmpPadre_"+uuid+".pdf";
-      // String pdfPadre="e:/SAS/PDFs/Estatuto Waykap SAS - Como adjunto certificado por IGJ.pdf";
+        //String pdfPadre= Propiedades.getPropiedadesValor("docPath")+"tmpPadre_"+uuid+".pdf";
+        String pdfPadre="E:\\was\\JavaAppsConfig\\coe\\documentos\\IF-2017-27467319-APN-DA#IGJ.pdf";
         String pdfHijo=Propiedades.getPropiedadesValor("docPath")+"tmpHijo_"+uuid+".pdf";
         boolean tieneAdjuntos = false;
 
         try {
 
 
-            FileUtils.writeByteArrayToFile(new File(pdfPadre), decode(leerArchivo()));
+            //FileUtils.writeByteArrayToFile(new File(pdfPadre), decode(leerArchivo()));
 
             List<Documento> resultadoDelAnalisis=null;
 
