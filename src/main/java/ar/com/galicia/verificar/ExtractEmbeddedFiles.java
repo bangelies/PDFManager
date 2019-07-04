@@ -43,6 +43,10 @@ public final class ExtractEmbeddedFiles
 {
 
     private String pdfHijo="";
+
+    public ExtractEmbeddedFiles(){
+    }
+
     public ExtractEmbeddedFiles(String pdfHijo){
         this.pdfHijo=pdfHijo;
     }

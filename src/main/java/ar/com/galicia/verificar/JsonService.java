@@ -52,11 +52,12 @@ public class JsonService extends HttpServlet {
 
         String uuid = UUID.randomUUID().toString();
         String jsonInString="";
+
         String pdfPadre= Propiedades.getPropiedadesValor("docPath")+"tmpPlancheta_"+uuid+".pdf";
         String pdfHijo=Propiedades.getPropiedadesValor("docPath")+"tmpEstatuto_"+uuid+".pdf";
 
         String base64=IOUtils.toString(req.getReader());
-        Logear.logEmpresasSAS_debug(base64);
+        //Logear.logEmpresasSAS_debug(base64);
 
         try {
 
@@ -68,6 +69,7 @@ public class JsonService extends HttpServlet {
 
             List<String> documentosParaAnalizar = new ArrayList<String>();
             documentosParaAnalizar.add(pdfPadre);
+
 
             try {
                 ExtractEmbeddedFiles eef = new ExtractEmbeddedFiles(pdfHijo);
@@ -81,7 +83,7 @@ public class JsonService extends HttpServlet {
                 Logear.logEmpresasSAS_error("Documento no valido");
                 jsonInString="Documento no valido";
             }
-
+            // -------------------------------- HASTA ACA ------------------------------------
 
             Logear.logEmpresasSAS_debug("Resultado final:"+jsonInString);
 
@@ -104,7 +106,7 @@ public class JsonService extends HttpServlet {
         try {
             for (String pathDocumento: documentosParaAnalizar) {
                 CertificateValidation cv = new CertificateValidation();
-                documentosAnalizados.add(cv.verificarFirmaFilePath(pathDocumento));
+                documentosAnalizados.add(cv.verificarFirmaFilePath(pathDocumento,"cer"));
             }
         }catch(Exception e){
             System.out.println("---> El documento no tiene firmas" );

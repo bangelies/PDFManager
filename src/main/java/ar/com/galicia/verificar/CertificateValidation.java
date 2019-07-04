@@ -166,18 +166,19 @@ public class CertificateValidation {
 //
 //		return listaEstadoFirmas;
 //	}
-	public Documento verificarFirmaFilePath(String path) throws IOException,GeneralSecurityException, Exception {
+	//Agregar parametro cer.
+	public Documento verificarFirmaFilePath(String path,String cert) throws IOException,GeneralSecurityException, Exception {
 		Logear.logEmpresasSAS_debug("************* Inicio analisis del documento *************");
-
+		System.out.println("************* Inicio analisis del documento *************");
 		//Inicializo BouncyCastle para comenzar el analisis
 		BouncyCastleProvider provider = new BouncyCastleProvider();
 		Security.addProvider(provider);
 		KeyStore ks = KeyStore.getInstance(KeyStore.getDefaultType());
 		ks.load(null, null);
 		CertificateFactory cf = CertificateFactory.getInstance("X.509");
-		ks.setCertificateEntry("cacert",cf.generateCertificate(new FileInputStream(Propiedades.getPropiedadesValor("cer"))));
+		ks.setCertificateEntry("cacert",cf.generateCertificate(new FileInputStream(Propiedades.getPropiedadesValor(cert))));
 		setKeyStore(ks);
-
+        System.out.println("Keystore "+ks);
 
 		//Por cada documento realizo los siguientes pasos para su analisis
 		Documento documento = new Documento();
@@ -194,6 +195,7 @@ public class CertificateValidation {
 			documento.setHayFirmas(true);
 			for (String name : names) {
 				Logear.logEmpresasSAS_debug("===== " + name + " =====");
+                System.out.println("===== " + name + " =====");
 				firmas.add(verifySignature(fields, name));
 			}
 		}

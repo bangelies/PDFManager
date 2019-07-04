@@ -35,8 +35,12 @@ public class A {
         ObjectMapper mapper = new ObjectMapper();
         String uuid = UUID.randomUUID().toString();
         String jsonInString="";
-        //String pdfPadre= Propiedades.getPropiedadesValor("docPath")+"tmpPadre_"+uuid+".pdf";
-        String pdfPadre="E:\\was\\JavaAppsConfig\\coe\\documentos\\IF-2017-27467319-APN-DA#IGJ.pdf";
+        //String pdfPadre= Propiedades.getPropiedadesValor("docPath")+"tmpPadre_"+uui
+        // d+".pdf";
+         //String pdfPadre="C:\\CoE\\PDFManager\\documentos\\Example.pdf";
+   //     String pdfPadre = "C:\\CoE\\PDFManager\\documentos\\IF_2018_15442867_APN_DA23IGJ HACIENDA DEL REY.pdf";
+        String pdfPadre = "C:\\CoE\\PDFManager\\documentos\\CLONIFY_PlanchetaSAS.pdf";
+
         String pdfHijo=Propiedades.getPropiedadesValor("docPath")+"tmpHijo_"+uuid+".pdf";
         boolean tieneAdjuntos = false;
 
@@ -50,7 +54,7 @@ public class A {
             List<String> documentosParaAnalizar = new ArrayList<String>();
             documentosParaAnalizar.add(pdfPadre);
 
-            try {
+           try {
                 ExtractEmbeddedFiles eef = new ExtractEmbeddedFiles(pdfHijo);
                 if(eef.extraerAdjuntos(pdfPadre)){
 
@@ -85,9 +89,10 @@ public class A {
         try {
             for (String pathDocumento: documentosParaAnalizar) {
                 CertificateValidation cv = new CertificateValidation();
-                documentosAnalizados.add(cv.verificarFirmaFilePath(pathDocumento));
+                documentosAnalizados.add(cv.verificarFirmaFilePath(pathDocumento,"digilogic"));
             }
         }catch(Exception e){
+            e.printStackTrace();
             System.out.println("---> El documento no tiene firmas" );
         }
         return documentosAnalizados;

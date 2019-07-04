@@ -2,7 +2,7 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="ProcesoCILI@AD_CILI_ProcesoCILI" uuid="0fd04b71-ab5e-42c8-938a-6b41d101f01d">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" exact-version="0" />
     </data-source>
   </component>
 </project>
